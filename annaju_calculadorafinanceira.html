@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculadora Financeira - Freezeway </title>
+</head>
+<body>
+<h1> FreezeWay </h1> 
+
+<p> Nós do projeto FrezzeWay, criamos um sensor de temperatura para monitorar e assegurar que o seu produto chegue da melhor maneira possível ao local desejado, evitando perdas durante o trajeto . <br> 
+Como uma maneira de lhe assegurar que o nosso projeto valorizará a sua empresa, criamos um simulador financeiro para calcular seus ganhos. </p>
+ 
+Insira a quantidade de pacotes que serão transportados: <input type="text" id="input_pacote">
+
+<br><br>
+
+Insira o valor de cada pacote: <input type="text" id="input_valor">
+<br><br>
+
+Insira a quantidade de entregas: <input type="text" id="input_entrega">
+<br><br>
+
+<button onclick="calcular()">Calcular ganhos </button>
+
+<br><br>
+
+<div id="exibir"></div><br>
+
+
+<div id="mensagem"></div>
+
+</body>
+</html>
+<script>
+
+var pacote = 0;
+var valor = 0; 
+var semana = 0; 
+var ganho = 0;
+var perda = 0;
+var total = 0;
+var garantia = 0;
+var Freezeway = 0;
+
+    function calcular() {
+
+    var pacote = Number(input_pacote.value)
+    var valor = Number(input_valor.value)
+    var entrega = Number(input_entrega.value)
+
+// Sem Freezeway 
+
+var ganho = pacote * valor * entrega
+var perda = ganho * 0.29 
+var total = ganho - perda
+
+// Com a Freezeway 
+var meiaperda = (perda *0.50)
+var Freezeway =  total + meiaperda
+
+
+exibir.innerHTML = `Com ${entrega} entregas, você ganha R$${total} com uma perda de R$${perda}. <br><br>
+Já com a Freezeway você ganha pelo menos R$${Freezeway} , deixando de perder R${meiaperda}.<br>
+Garantimos que pelo menos 50% do que você perdia, com o nosso produto, você irá receber. `
+    }
+
+</script>
