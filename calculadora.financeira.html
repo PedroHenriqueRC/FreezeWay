@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<h1>Calculadora financeira FreezeWay</h1>
+<p>Ganho ao usar FreezeWay:</p>
+<br>
+<h2>Percentual de ganho. insira: </h2>
+<br>
+<p>Quantidade de pacotes enviadas em cada entrega: </p>
+<input type="text" id="quantidade" placeholder="Quantidade">
+<p>Valor por produto:</p>
+<input type="text" id="valor" placeholder="Preço">
+<p>Peso de cada pacote (em kg):</p>
+<input type="text" id="quilo" placeholder="Peso">
+<br><br>
+<button onclick="calcganho()">Calcular</button>
+<br><br>
+<div id="resultado1">
+</div>
+<h2>Ganho a longo prazo</h2>
+<p>Entregas no mês: </p>
+<input type="text" id="mes">
+<br><br>
+<p>Tempo em meses: </p>
+<input type="text" id="tempo">
+<br><br>
+<button onclick="calctempo()">Calcular</button>
+<div id="resultados2">
+
+    </body>
+
+</html>
+
+<script>
+    var preco = 0
+    var totalval = 0
+    var qtd = 0
+    var kg = 0
+    var totalpeso = 0
+    var porcganho = 0
+    var porcqtd = 0
+    var ganho = 0
+    var perda = 0
+    var ganhofinalizado = 0
+
+    function calcganho() {
+        qtd = Number(quantidade.value)
+        preco = Number(valor.value)
+        kg = Number(quilo.value)
+
+        totalval = preco * qtd
+        totalpeso = qtd * kg
+
+        porc = totalval * 0.29
+        ganho = totalval - porc
+        porcqtd = qtd * 0.29
+        perda = qtd - porcqtd
+
+        ganhofinalizado = porc * 0.50
+
+
+        resultado1.innerHTML = `<p> A quantidade de carga no caminhão por entrega é de: ${qtd} pacotes. <br>
+    <br> O valor total da carga é de: R$${totalval} reais<br>
+         O valor total foi calculado através de: preço x quantidade.<br>
+    <br> e o peso total da carga do caminhão é: ${totalpeso}<br>
+         Calculado através de: quantidade x peso.<br>
+    <br> o valor de perda de mercadoria no transporte é de até: R$${porc} reais<br>
+         Calculado através de: valor total x 29%.<br>
+    <br> o valor final da carga é de: R$${ganho} reais<br>
+         Calculado através de: valor total - 29%.<br>
+    <br> a perda de pacotes no caminhão é: ${porcqtd} pacotes<br>
+         Calculado através de: quantidade x 29%.<br>
+    <br><span class="mensagem"> Com o nosso projeto, você deixa de perder R$${ganhofinalizado} reais<span></p>
+        <p>Calculado através de: valor de Perda - 50% </p>
+            <p>(50% é a nossa garantia de ganho)</p>`
+    }
+
+    function calctempo() {
+        var meses = Number(tempo.value)
+        var qtd_entrega = Number(mes.value)
+
+        var porcmes = qtd_entrega * porc
+        var ganhomes = qtd_entrega * ganho
+        var qtd_entrega_mes = qtd_entrega * porcqtd
+        var perdames = qtd_entrega * perda
+
+        var porcfinal = porcmes * meses
+        var ganhofim = ganhomes * meses
+        var qtdentregafinal = qtd_entrega_mes * meses
+        var perdafinal = perdames * meses
+
+        var final = porcfinal * 0.50
+
+        resultados2.innerHTML =
+            `<p>Durante ${meses} meses você tem os seguintes números:<br>
+        <br>A quantidade de carga no caminhão por entrega é de: ${qtd} pacotes. <br>
+        <br> O valor total da carga é de: R$${(totalval * qtd_entrega) * meses} reais<br>
+             O valor total foi calculado através de: (preço x quantidade) x meses.<br>
+        <br> O valor de perda da mercadoria no transporte durante ${meses} meses é de até: R$${porcfinal} reais<br>
+             Calculado através de: (valor total x 29%) x meses.<br>
+        <br> O valor final da carga durante ${meses} meses é de: R$${ganhofim} reais<br>
+             Calculado através de: (valor total - 29%) x meses.<br>
+        <br> A perda de pacotes no caminhão durante ${meses} meses é: ${qtdentregafinal} pacotes<br>
+             Calculado através de: (quantidade x 29%) x meses.<br>
+        <br><span class="mensagem"> Com o nosso projeto, durante ${meses} meses, você deixa de perder pelo menos R$${final} reais<span></p>
+            <p>Calculado através de: (valor economizado - 50%) x meses.</p>`
+    }
+</script>
+
+
+</body>
