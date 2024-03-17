@@ -8,7 +8,7 @@
     <style>
         body {
             text-align: center;
-            background-color: darkgrey;
+            background-color: rgb(97, 177, 252);
         }
 
         p {
@@ -18,7 +18,7 @@
 
         h1 {
             font-size: 40px;
-            color: rgb(0, 60, 255);
+            color: rgb(0, 17, 72);
             font-style: oblique;
 
         }
@@ -49,7 +49,8 @@
     <h2>Calculadora Financeira</h2>
     <p>Aqui você pode calcular a quantidade de economia ao utilizar o nosso produto.</p>
     <br>
-    <h2>Para descobrirmos o percentual de economia, precisamos saber. <br><br> Qual a média por entrega que você carrega em
+    <h2>Para descobrirmos o percentual de economia, precisamos saber. <br>
+        <br> Qual a média por entrega que você carrega em
         seus caminhões?</h2>
     <p>Insira abaixo a quantidade de pacotes enviadas em cada entrega: </p>
     <input type="text" id="quantidade" placeholder="Quantidade" >
@@ -142,7 +143,7 @@
             `<p>Durante ${meses} meses você tem os seguintes números:<br>
         <br>A quantidade de carga no caminhão por entrega é de: ${qtd} pacotes. <br>
         <br> O valor total da carga é de: R$${(valtotal * qtd_entrega) * meses} reais<br>
-             O valor total foi calculado através de: preço x quantidade x meses.<br>
+             O valor total foi calculado através de: (preço x quantidade) x meses.<br>
         <br> O valor de perda da mercadoria no transporte durante ${meses} meses é de até: R$${porcfinal} reais<br>
              Calculado através de: (valor total x 29%) x meses.<br>
         <br> O valor final da carga durante ${meses} meses é de: R$${economiafim} reais<br>
