@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações Aritiméticas</title>
+</head>
+<body>
+
+    <h1>Calculadora Financeira</h1>
+    Informe a quantidade de produtos a ser transportada: <input id = "input_carga" type = "text"> 
+    <br>
+    <br>
+    Informe o preço da carga: <input id = "input_preco" type = "text"> 
+    <br>
+    <br>
+    <button onclick = "calcular()">Calcular perda</button>
+    <div id="mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function calcular() {
+    var carga = Number (input_carga.value)
+    var preco = Number (input_preco.value)
+    var perda = carga * 0.29
+    var prejuizo = preco * 0.29
+
+
+        mensagem.innerHTML = ` De ${carga} produtos, você perdeu ${perda} e teve um prejuízo de R$${prejuizo}.`
+    }
+
+</script>
