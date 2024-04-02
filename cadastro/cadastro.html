@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site institucional</title>
-    <link rel="stylesheet" href="/SiteInstitucional/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -42,26 +42,6 @@
 
 <script>
     function cadastrar() {
-        var empresa = nome_empresa.value;
-        var cnpj = Number(cnpj_empresa.value);
-        var email = email_empresa.value;
-        var senha1 = primeira_senha.value;
-        var senha2 = confirma_senha.value;
-
-        if (email != email.endsWith(".com") && email.indexOf("@") == "-1") {
-            alert('Digite um E-mail válido')
-        }
-
-        if (cnpj.length < 14 || cnpj.length > 14) {
-            alert('Digi te um CNPJ válido');
-        }
-
-        if (senha1 == senha2) {
-            alert("Cadastro realizado com sucesso!")
-        } else {
-            alert("Houve incoerência em sua senha.\n Digite sua senha novamente!")
-        }
-
 
     }
 
