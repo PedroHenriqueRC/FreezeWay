@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="styledashecad.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body align="center">
+
+    <div class="header">
+        <div class="conteiner">
+            <h2>FreezeWay</h2>
+            <h2>Swift</h2>
+            <ul class="navbar">
+                <li><a href="1°esboço.html">Home</a></li>
+                <li><a href="dashboard.html">Login</a></li>
+                <li>|</li>
+                <li><a href="areacadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+    <br><br>
+        <div class="info-box" style="position: absolute; left: 100px;height: 50px;">
+
+            <button onclick="Verificar()">
+                <a href="grafico.html">
+                    <canvas id="myChart2" style="height: 30px;"></canvas>   
+                </a>
+                <h2>Caminhões</h2>
+                <p>45 Caminhões estão com problema na Temperatura no ultimo mês</p>
+
+            </button>
+        </div>
+    </div>
+
+    <div class="info-box" style="position: absolute;right:100px ;height: 65px;">
+        <button onclick="Media()">
+            <a href="grafico2.html">
+                <canvas id="myChart2"></canvas>
+            </a>
+
+            <h2>Temperatura média</h2>
+            <p>A Temperatura média atual está em -16.7°C está dentro do ideal</p>
+        </button>
+
+    </div>
+
+    <!--
+           <div class="info-box" style="background-color: #ffa600;">
+               <h2></h2>
+               <p>Conteúdo da informação 3</p>
+            -->
+    </div>
+    </div>
+
+    <br><br>
+    <br><br>
+    <div id="grafico" style="background-color: white; display: inline ;">
+    </div>
+
+    <br><br>
+    <br><br>
+
+    <div id="grafico" style="background-color: white; display: inline ;">
+        <br><br>
+        <h1>Análise anual</h1>
+        <canvas id="myChart" style="position: absolute;top: 70%;height: 10px;"></canvas>
+    </div>
+
+
+    <script>
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                datasets: [{
+                    label: '- Caminhões Problemáticos',
+                    data: [60, 110, 40, 90, 80, 70, 120, 50, 100, 30, 20, 10],
+                    backgroundColor: '#ffd900',
+                    borderColor: '#ffffff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+            legend: {
+                labels: {
+                    fontColor: 'rgb(0, 0, 255)' // Cor dos rótulos
+                },
+                label: {
+                    fontColor: 'rgb(255, 255, 255)' // Cor dos rótulos
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    label: '- Temperatura atual',
+                    data: [-14, -17, -17, -13, -16, -18],
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    borderWidth: 2,
+                },
+               /* {
+                    label: '- Umidade',
+                    data: [90, 89, 93, 87, 88, 82],
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                    borderWidth: 2,
+                }*/]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }); 
+    </script>
+
+</body>
+
+</html>
