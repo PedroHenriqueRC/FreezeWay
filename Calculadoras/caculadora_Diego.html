@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body align="center">
+    <style>
+        body {
+            background-color: #18a0e4;
+            font-size: monospace;
+            font-family: 'Arial', sans-serif;
+
+        }
+        .div {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #ffffff
+        }
+        
+    </style>
+
+    <!-- 
+Custos Operacionais:
+Os Custos Operacionais são uma soma de diversos elementos que incluem:
+Custo de Combustível: O montante gasto em combustível durante o transporte.
+Pedágios: Custos associados aos pedágios pagos ao longo da rota.
+Manutenção do Veículo: Despesas com a manutenção e reparo dos veículos utilizados no transporte.
+Salários dos Motoristas: Remuneração dos motoristas envolvidos no transporte da carga.
+Seguro de Carga: Custos relativos ao seguro necessário para proteger a carga durante o transporte.
+Outros Custos Operacionais: Quaisquer outros gastos relacionados às operações de transporte, como taxas administrativas, licenças, etc.
+-->
+
+<h1>Calculadora de Finanças </h1>
+<h2>Custo do produto</h2>
+Para calcular o custo do produto basta colocar a quantidade de produtos e o valor unitario dele. <br>
+ <input id="ipt_unit" placeholder="Preço" type="text"> 
+<input id="ipt_preço" placeholder="Quantidade" type="text"><br>
+
+<br><button onclick="CustoProduto()">Calcular preço dos produtos</button><br>
+<br><div id="resultadoP">R$0</div>
+
+<h2>Custo do transporte</h2>
+Para calcular, Insira o total de quilômetros rodados e o valor por cada quilômetro para calcular o custo do transporte. 
+<br>
+Por exemplo, se você rodou 500 quilômetros a um custo de R$ 2,00 por quilômetro, 
+a parte do custo de transporte será 500×2,00
+<br><input id="ipt_km" placeholder="KM" type="text">
+<input id="ipt_ro" placeholder="Valor" type="text"><br>
+
+<br><button onclick="CustoKM()">Calcular custo por quilometros</button><br>
+<br><div id="custokm">R$0</div>
+<h2>Custos operacionais</h2>
+Esses custos são os custos de combustível,pedágios, manutenção do veículo, salários dos motoristas,
+ seguro de carga. <br>
+<input placeholder="Preço do combustivel" id="combustivel" type="text"> <input id="pedagio" type="text" placeholder="Valor dos pedagios"> <input placeholder="Valor da manutenção" id="manutenção" type="text"> 
+<input placeholder="Salario dos motoristas" id="salario" type="text"> <input placeholder="Valor do seguro"  id="seguro" type="text"><br>
+
+<br><button onclick="operacionais()">Calcular custos operacionais</button><br>
+<br>R$0</div>
+</body>
+</html>
+<script>
+     var total = 0
+
+function CustoProduto() {
+    var n1 = Number(ipt_unit.value)
+    var n2 = Number(ipt_preço.value)
+    var total = n1 * n2
+
+    resultadoP.innerHTML = ` O preço bruto dos produtos será de R$${total}`
+
+}
+function CustoKM(){
+    var n1 = Number(ipt_km.value)
+    var n2 = Number(ipt_ro.value)
+    var total = n1 * n2
+
+   
+    custokm.innerHTML = ` O preço total por quilometros rodados será de R$${total}`
+}
+function operacionais(){
+var n1=Number(combustivel.value)
+var n2=Number(pedagio.value)
+var n3=Number(manutenção.value)
+var n4=Number(salario.value)
+var n5=Number(seguro.value)
+var total= n1+n2+n3+n4+n5
+
+operacionail.innerHTML=`O preço final dos custos opecacionais será de R$${total}`
+}
+
+</script>
