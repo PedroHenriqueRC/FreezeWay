@@ -6,7 +6,7 @@
 }
 
 body{
-    background: #d4d3d3;
+    background: #d4d4d4;
     color: white;
 }
 
@@ -22,7 +22,7 @@ body{
     height: 100%;
     margin: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
 }
@@ -32,51 +32,39 @@ body{
     flex-direction: column;
     width: 500px;
     margin: auto;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-}
-
-.titulo1{
-    margin-left: 160px;
-    font-size: 150px;
 }
 
 .imagem{
     display: flex;
-    float: right;
+    float: left;
+
 }
 
 img{
-    height: 606px;
+    height: 683px;
     width: 500px;
 }
 
 .form .container h2{
-    color: #061e8a;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 27px;
+    color: #222;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 35px;
-    margin-left: 100px;
 }
 
 .form .container p{
-    margin-top: 15px;
-    color: #404be0;
+    margin-top: 12px;
+    color: #949292;
 }
 
 input{
     width: 410px;
     height: 40px;
     border-radius: 15px;
-    background: transparent;
-    color: #000;
-    transition: 400ms;
-    border: 1px solid #949292;
-    padding: 10px;
-}
-
-input:hover{
-    border: 1px solid #000dc4;
-    font-size: 18px;
+    background: #949292;
+    border: none;
 }
 
 button{
@@ -89,26 +77,8 @@ button{
     font-size: 20px;
     cursor: pointer;
     transition: 400ms;
-    border: none;
 }
 
 button:hover{
     background: #011366;
-}
-
-a{
-    color: #060b5f;
-    transition: 400ms;
-
-}
-
-a:hover{
-    color: rgb(84, 43, 231);
-}
-
-.cadastroP{
-    margin-left: 120px;
-    color: #000dc4;
-    margin-top: -50px;
-    font-size: 15px;
 }
