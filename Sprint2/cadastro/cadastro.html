@@ -47,22 +47,30 @@
         var tamanhoCnpj = cnpj.length;
         var terminaCCom = email.endsWith(".com");
         var tamanhoSenha = senha.length;
+        var nomeEmpresa = nome_empresa.value;
 
-        if (posicaoArroba < 0) {
-            alert("O email precisa conter '@'");
-        }
+        console.log(nomeEmpresa);
 
-        if(terminaCCom == false){
-            alert("O email precisa terminar com '.com'");
+        if (nomeEmpresa == "") {
+            alert("O nome da empresa nao pode ser nulo");
         }
 
         if (tamanhoCnpj >= 14) {
             if (posicaoPonto >= 0 || posicaoBarra >= 0) {
                 alert("O cnpj nao pode conter pontos ou barra");
             }
+            alert("O cnpj tem que ter 14 caraceteres");
         }
 
-        if(tamanhoSenha < 8 ){
+        if (posicaoArroba < 0) {
+            alert("O email precisa conter '@'");
+        }
+
+        if (terminaCCom == false) {
+            alert("O email precisa terminar com '.com'");
+        }
+
+        if (tamanhoSenha < 8) {
             alert("A senha deve conter 8 ou mais caracteres");
         }
     }
