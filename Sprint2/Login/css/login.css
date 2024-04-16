@@ -47,14 +47,14 @@ img{
 }
 
 .form .container h2{
-    margin-top: 10px;
+    margin-top: 50px;
     color: #061e8a;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 35px;
 }
 
 .form .container p{
-    margin-top: 35px;
+    margin-top: 30px;
     color: #404be0;
 }
 
@@ -79,6 +79,7 @@ button{
     width: 250px;
     border-radius: 15px;
     margin-left: 70px;
+    margin-top: 30px;
     height: 40px;
     background: #0c29c9;
     color: #d4d4d4;
@@ -113,21 +114,10 @@ a:hover{
     margin-left: 78px;
     color: #000dc4;
     text-decoration: underline;
+    margin-top: -150px;
 }
 
 .titulo1{
     margin-left: 160px;
     font-size: 150px;
-}
-
-.chk{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#chk1{
-    height: 15px;
-    padding: 0;
-    margin: 0;
 }
