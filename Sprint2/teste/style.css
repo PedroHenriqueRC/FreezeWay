@@ -17,6 +17,104 @@ body{
     height: 100px;
 }
 
+.containercadastro{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formCadastro {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: auto;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tituloCadastro{
+    margin-left: 160px;
+    font-size: 150px;
+}
+
+.imagemcadastro{
+    display: flex;
+    float: right;
+}
+
+.imgCadastro{
+    height: 606px;
+    width: 500px;
+}
+
+.formCadastro .containercadastro h2{
+    color: #061e8a;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+    margin-left: 100px;
+}
+
+.formCadastro .containercadastro .pCadastro{
+    margin-top: 15px;
+    color: #404be0;
+}
+
+input{
+    width: 410px;
+    height: 40px;
+    border-radius: 15px;
+    background: transparent;
+    color: #000;
+    transition: 400ms;
+    border: 1px solid #949292;
+    padding: 10px;
+}
+
+input:hover{
+    border: 1px solid #000dc4;
+    font-size: 18px;
+}
+
+button{
+    width: 250px;
+    border-radius: 15px;
+    margin-left: 70px;
+    height: 40px;
+    background: #0c29c9;
+    color: #d4d4d4;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 400ms;
+    border: none;
+}
+
+button:hover{
+    background: #011366;
+}
+
+a{
+    color: #060b5f;
+    transition: 400ms;
+
+}
+
+a:hover{
+    color: rgb(84, 43, 231);
+}
+
+.cadastroP{
+    margin-left: 120px;
+    color: #000dc4;
+    margin-top: -30px;
+    font-size: 15px;
+}
+
+/*Começo do style do login*/
+
 .containerLogin{
     width: 80%;
     height: 100%;
@@ -53,58 +151,14 @@ body{
     font-size: 35px;
 }
 
-.formLogin .containerLogin .loginP{
+.formLogin .containerLogin p{
     margin-top: 30px;
     color: #404be0;
 }
 
-input{
-    width: 410px;
-    height: 40px;
-    border-radius: 15px;
-    background: transparent;
-    margin-top: 5px;
-    color: #000;
-    transition: 400ms;
-    border: 1px solid #949292;
-    padding: 10px;
-}
 
-input:hover{
-    border: 1px solid #000dc4;
-    font-size: 18px;
-}
-
-button{
-    width: 250px;
-    border-radius: 15px;
-    margin-left: 70px;
-    margin-top: 30px;
-    height: 40px;
-    background: #0c29c9;
-    color: #d4d4d4;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 400ms;
-    border: none;
-}
-
-button:hover{
-    background: #011366;
-}
-
-a{
-    color: #060b5f;
-    transition: 400ms;
-}
-
-a:hover{
-    color: rgb(84, 43, 231);
-
-}
-
-.cadastroP{
-    margin-left: 78px;
+.loginP{
+    margin-left: 7px;
     color: #000dc4;
     margin-top: -50px;
     font-size: 15px;
@@ -120,4 +174,11 @@ a:hover{
 .tituloLogin{
     margin-left: 160px;
     font-size: 150px;
+}
+
+.pLogin{
+    margin-left: 90px;
+    color: #000dc4;
+    margin-top: -30px;
+    font-size: 15px;
 }
