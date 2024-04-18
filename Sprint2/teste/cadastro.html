@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site institucional</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         </div>
         <div class="formCadastro">
             <div class="containercadastro">
-                <form id="cadastro">
+                <div id="cadastro">
                     <h2 class="tituloCadastro">Cadastre-se</h2>
                     <p class="pCadastro">Empresa</p><br>
                     <input type="text" id="nome_empresa" required="required"
@@ -26,11 +26,11 @@
                     <p class="pCadastro">E-mail</p><br>
                     <input type="text" id="email_empresa" required="@" placeholder="Informe o email da empresa"><br><br>
                     <p class="pCadastro">Senha</p><br>
-                    <input type="password" id="primeira_senha" required="required" placeholder="Digite sua senha"><br><br>
+                    <input type="password" id="cadastroSenha" required="required" placeholder="Digite sua senha"><br><br>
                     <br><br>
                     <button onclick="cadastrar()">Cadastrar</button><br><br><br>
                     <p class="cadastroP">Já é cadastrado? <a href="../Login/login.html">login</a></p>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -40,17 +40,17 @@
         </div>
         <div class="formLogin">
             <div class="containerLogin">
-                <form id="login">
+                <div id="login">
                     <h2 class="tituloLogin">Login</h2>
                     <p class="loginP">E-mail</p><br>
-                    <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br><br>
+                    <input type="text" id="email" required="@" placeholder="Informe seu e-mail"><br><br>
                     <p class="loginP">Senha</p><br>
                     <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha"><br><br>
                     <br><br>
                     <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p><br><br>
                     <button onclick="cadastrar()">Login</button>
                     <p class="pLogin">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -60,9 +60,13 @@
 
 <script>
     function cadastrar() {
+
+        window.location.href = "aa.html";
+
+
         var cnpj = cnpj_empresa.value;
         var email = email_empresa.value;
-        var senha = primeira_senha.value;
+        var senha = cadastroSenha.value;
         var posicaoArroba = email.indexOf("@");
         var posicaoPonto = cnpj.indexOf(".");
         var posicaoBarra = cnpj.indexOf("/");
@@ -95,10 +99,10 @@
         if (tamanhoSenha < 8) {
             alert("A senha deve conter 8 ou mais caracteres");
         }
+        alert("Pedro")
 
         paiCadastro.style.display = "none";
         paiLogin.style.display = "block";
-
     }
 
 </script>
