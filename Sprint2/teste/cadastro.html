@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site institucional</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         </div>
         <div class="formCadastro">
             <div class="containercadastro">
-                <form id="cadastro">
+                <div id="cadastro">
                     <h2 class="tituloCadastro">Cadastre-se</h2>
                     <p class="pCadastro">Empresa</p><br>
                     <input type="text" id="nome_empresa" required="required"
@@ -30,27 +30,7 @@
                     <br><br>
                     <button onclick="cadastrar()">Cadastrar</button><br><br><br>
                     <p class="cadastroP">Já é cadastrado? <a href="../Login/login.html">login</a></p>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="paiLogin" style="display: none;">
-        <div class="imagemLogin">
-            <img class="imgLogin" src="img/frezzeWay.png" alt="">
-        </div>
-        <div class="formLogin">
-            <div class="containerLogin">
-                <form id="login">
-                    <h2 class="tituloLogin">Login</h2>
-                    <p class="loginP">E-mail</p><br>
-                    <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br><br>
-                    <p class="loginP">Senha</p><br>
-                    <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha"><br><br>
-                    <br><br>
-                    <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p><br><br>
-                    <button onclick="cadastrar()">Login</button>
-                    <p class="pLogin">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -70,8 +50,6 @@
         var terminaCCom = email.endsWith(".com");
         var tamanhoSenha = senha.length;
         var nomeEmpresa = nome_empresa.value;
-
-        console.log(nomeEmpresa);
 
         if (nomeEmpresa == "") {
             alert("O nome da empresa nao pode ser nulo");
@@ -95,10 +73,7 @@
         if (tamanhoSenha < 8) {
             alert("A senha deve conter 8 ou mais caracteres");
         }
-
-        paiCadastro.style.display = "none";
-        paiLogin.style.display = "block";
-
+        window.location.href = "../Login/login.html";
     }
 
 </script>

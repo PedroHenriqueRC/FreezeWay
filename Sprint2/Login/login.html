@@ -9,21 +9,21 @@
 </head>
 
 <body>
-    <div class="imagem">
-        <img src="img/frezzeWay.png" alt="">
+    <div class="imagemLogin">
+        <img class="imgLogin" src="img/frezzeWay.png" alt="">
     </div>
-    <div class="form">
-        <div class="container">
+    <div class="formLogin">
+        <div class="containerLogin">
             <form id="login">
-                <h2 class="titulo1">Login</h2>
-                <p>E-mail</p><br>
+                <h2 class="tituloLogin">Login</h2>
+                <p class="loginP">E-mail</p><br>
                 <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br><br>
-                <p>Senha</p><br>
+                <p class="loginP">Senha</p><br>
                 <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha"><br><br>
                 <br><br>
-                <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p>
-                <button onclick="cadastrar()">Cadastrar</button>
-                <p class="cadastroP">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
+                <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p><br><br>
+                <button onclick="login()">Login</button>
+                <p class="pLogin">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
             </form>
         </div>
     </div>
@@ -32,7 +32,7 @@
 </html>
 
 <script>
-    function cadastrar() {
+    function login() {
 
     }
 
