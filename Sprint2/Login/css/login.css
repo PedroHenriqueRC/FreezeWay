@@ -54,7 +54,7 @@ body{
 }
 
 .formLogin .containerLogin .loginP{
-    margin-top: 30px;
+    margin-top: 31px;
     color: #404be0;
 }
 
@@ -72,7 +72,7 @@ input{
 
 input:hover{
     border: 1px solid #000dc4;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 button{
@@ -103,10 +103,10 @@ a:hover{
 
 }
 
-.cadastroP{
+.pLogin{
     margin-left: 78px;
     color: #000dc4;
-    margin-top: -50px;
+    margin-top: 20px;
     font-size: 15px;
 }
 
@@ -114,7 +114,7 @@ a:hover{
     margin-left: 78px;
     color: #000dc4;
     text-decoration: underline;
-    margin-top: -150px;
+    margin-top: 20px;
 }
 
 .tituloLogin{
