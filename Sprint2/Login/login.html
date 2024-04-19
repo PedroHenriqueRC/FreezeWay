@@ -9,9 +9,15 @@
 </head>
 
 <body>
-    <div class="imagemLogin">
-        <img class="imgLogin" src="img/frezzeWay.png" alt="">
+
+    <div class="mensagem" id="idMsg">
+        <p id="p_msg" class="p">ldjfkefve</p>
     </div>
+
+    <div class="imagemLogin">
+        <img class="imgLogin" src="img/frezzeWay.png">
+    </div>
+
     <div class="formLogin">
         <div class="containerLogin">
             <form id="login">
@@ -33,6 +39,32 @@
 
 <script>
     function login() {
+
+        var email = email_empresa.value;
+        var senha = primeira_senha.value;
+
+        var termina_com_com = email.endsWith(".com");
+        var posicaoArroba = email.indexOf("@");
+
+        var tamanhoSenha = senha.lenght;
+
+        if (termina_com_com == false) {
+            idMsg.style.display = "flex";
+            p_msg.innerHTML = 'Email inválido tem que terminar com ".com"';
+        }
+        if (posicaoArroba < 0) {
+            idMsg.style.display = "flex";
+            p_msg.innerHTML = ("Email tem que possuir arroba");
+        }
+
+        if (tamanhoSenha < 6) {
+            idMsg.style.display = "flex";
+            p_msg.innerHTML = ("Senha tem que ter mais de 6 caracteres");
+        } else {
+
+        }
+
+
 
     }
 
