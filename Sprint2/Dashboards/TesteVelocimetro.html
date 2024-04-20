@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GaugeJS</title>
+</head>
+<body>
+   
+    <canvas id="foo" style="width: 380px; height: 150px"></canvas>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script type="text/javascript">
+	var opts = {
+		angle: 0, 
+		lineWidth: 0.44,
+		radiusScale: 1, // Raio relativo
+		pointer: {
+		  length: 0.6, // // Relativo ao raio do Gauge
+		  strokeWidth: 0.035, // Largura do traço
+		  color: '#000000' // Cor do ponteiro
+		},
+		limitMax: false,     // Se false, valor maximo aumenta automaticamente se valor > valor maximo
+		limitMin: false,     // Se true, o valor mínimo será fixo
+		colorStart: '#1ABC9C',   // Cores
+		colorStop: '#1ABC9C',    
+		strokeColor: '#F0F3F3',  
+		generateGradient: true,
+		highDpiSupport: true,  
+		
+	};
+	var target = document.getElementById('foo'); // Elemento onde o gauge deve ser criado
+	var gauge = new Gauge(target).setOptions(opts); // Criar gauge
+	gauge.maxValue = 100; // Valor maximo
+	gauge.setMinValue(0);  // Valor minimo
+	gauge.animationSpeed = 32; // Velocidade da animacao
+	gauge.set(100); // Valor a ser exibido
+	</script>
+</body>
+</html>
+
+
