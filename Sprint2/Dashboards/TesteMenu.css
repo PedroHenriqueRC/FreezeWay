@@ -37,7 +37,7 @@
     height: 750px;
     background: #424244;
     width: 75px;
-    box-shadow: 10px 0px 0px #099c22;
+    box-shadow: 10px 0px 0px skyblue;
     border-left: 10px solid #424244;
     overflow-x: hidden;
     transition: 0.5s;
@@ -95,7 +95,7 @@
     white-space: nowrap;
 }
 .navigation ul li.active{
-    background:#099c22;
+    background:skyblue;
 }
 .navigation ul li.active a::before{
      content: '' ;
@@ -106,7 +106,7 @@
     height: 30px;
     background:#424244;
     border-radius: 50%;
-    box-shadow: 15px 15px 0 #099c22;
+    box-shadow: 15px 15px 0 skyblue;
 }
 .navigation ul li.active a::after{
    content: '' ;
@@ -117,6 +117,6 @@
    height: 30px;
    background:#424244;
    border-radius: 50%;
-   box-shadow: 15px -15px 0 #099c22;
+   box-shadow: 15px -15px 0 skyblue;
 }
 
