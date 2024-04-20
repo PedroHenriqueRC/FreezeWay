@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site institucional</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -74,8 +74,9 @@
 
         if (tamanhoSenha < 8) {
             alert("A senha deve conter 8 ou mais caracteres");
+        }else{
+            window.location.href = "../Login/login.html";
         }
-        window.location.href = "../Login/login.html";
     }
 
 </script>
