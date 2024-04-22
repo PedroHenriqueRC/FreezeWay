@@ -7,12 +7,9 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-<<<<<<< HEAD
-=======
-    <div id="paiCadastro">
->>>>>>> 1d0644747789fee388102ebf521b1fd744db0fbd
+   <div id="paiCadastro">
+
         <div class="imagemcadastro">
             <img class="imgCadastro" src="img/frezzeWay.png" alt="">
         </div>
@@ -22,14 +19,16 @@
                     <h2 class="tituloCadastro">Cadastre-se</h2>
                     <p class="pCadastro">Empresa</p><br>
                     <input type="text" id="nome_empresa" required="required"
-                        placeholder="Informe o nome da sua empresa"><br><br>
+                        placeholder="Informe o nome da sua empresa">
                     <p class="pCadastro">CNPJ da Empresa</p><br>
                     <input type="text" id="cnpj_empresa" required="required"
-                        placeholder="Informe o CNPJ da empresa sem traços ou pontos"><br><br>
+                        placeholder="Informe o CNPJ da empresa sem traços ou pontos">
                     <p class="pCadastro">E-mail</p><br>
-                    <input type="text" id="email_empresa" required="@" placeholder="Informe o email da empresa"><br><br>
+                    <input type="text" id="email_empresa" required="@" placeholder="Informe o email da empresa">
                     <p class="pCadastro">Senha</p><br>
-                    <input type="password" id="primeira_senha" required="required" placeholder="Digite sua senha"><br><br>
+                    <input type="password" id="primeira_senha" required="required" placeholder="Digite sua senha">
+                    <p class="pCadastro">Confirme a Senha</p><br>
+                    <input type="password" id="segunda_senha" required="required" placeholder="Digite sua senha novamente">
                     <br><br>
                     <button onclick="cadastrar()">Cadastrar</button><br><br><br>
                     <p class="cadastroP">Já é cadastrado? <a href="../Login/login.html">login</a></p>
@@ -45,6 +44,7 @@
         var cnpj = cnpj_empresa.value;
         var email = email_empresa.value;
         var senha = primeira_senha.value;
+        var senha2 = segunda_senha.value;
         var posicaoArroba = email.indexOf("@");
         var posicaoPonto = cnpj.indexOf(".");
         var posicaoBarra = cnpj.indexOf("/");
@@ -74,6 +74,8 @@
 
         if (tamanhoSenha < 8) {
             alert("A senha deve conter 8 ou mais caracteres");
+        }else if(senha != senha2){
+            alert("As senhas não estão colidindo");
         }else{
             window.location.href = "../Login/login.html";
         }
