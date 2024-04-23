@@ -1,9 +1,5 @@
-body{
-    background-color: black;
-}
 
 #pesquisab{
-    
     background-color: white;
     width: 100px;
     height: 100px;
@@ -21,9 +17,9 @@ body{
 
 body {
     width: 100%;
-    color: rgb(255, 255, 255);
+    color:white;
     /* background-color: rgb(255, 255, 255); */
-    background-color: #adadad;
+    background-color: white;
     /* background-color: #ffd900; */
 
 }
@@ -53,8 +49,7 @@ body {
 }
 /* Estilos para a tabela */
 table {
-    align-items: center;
-    justify-content: center;
+    
     width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
@@ -147,4 +142,20 @@ a {
 
 #cadastro {
     padding: 20px;
+}
+
+#tabela1{
+   position: absolute;
+   top: 13%;
+  left: 200px;
+  color: black;
+
+}
+
+#tabela2{
+    position: absolute;
+    bottom: 20%;
+    left: 200px;
+    color: black;
+    
 }
