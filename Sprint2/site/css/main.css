@@ -10,17 +10,17 @@
     align-items: end;
     width: 100%;
     height: 70px;
-    background: #4427aa;
+    background: #400ff3;
     justify-content: right;
 }
 
 .borda{
     display: flex;
-    margin-right: 350px;
+    margin-right: 250px;
     border: 1px solid white;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
     justify-content: space-evenly;
-    width: 390px;
+    width: 590px;
     margin-bottom: 19px;
     align-items: center;
     height: 30px;
@@ -87,17 +87,28 @@
     color: #020f58;
 }
 
-.imagem{
-    margin-right: 150px;
-}
-
 .logo{
     width: 90px;
-    margin-right: 340px;
+    margin-right: 310px;
     margin-bottom: 5px;
 }
 
-.imgBG{
+.container{
+    display: flex;
     width: 100%;
-    height: 600px;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.animated{
+    width: 650px;
+}
+
+.p1{
+    margin-top: 50px;
+    font-size: 140px;
+    margin-left: 55px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #020f58;
 }
