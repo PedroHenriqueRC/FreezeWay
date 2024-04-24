@@ -39,6 +39,7 @@ body{
 .tituloCadastro{
     margin-left: 160px;
     font-size: 150px;
+    margin-top: 50px;
 }
 
 .imagemcadastro{
@@ -48,12 +49,12 @@ body{
 
 .imgCadastro{
     margin: 0%;
-    height: 606px;
-    width: 500px;
+    height: 742px;
+    width: 640px;
 }
 
 .formCadastro .containercadastro h2{
-    color: #061e8a;
+    color: #2c03d2;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 35px;
     margin-left: 100px;
@@ -110,6 +111,6 @@ a:hover{
 .cadastroP{
     margin-left: 120px;
     color: #000dc4;
-    margin-top: -30px;
+    margin-top: 30px;
     font-size: 15px;
 }
