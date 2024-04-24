@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="TesteMenu.css">
+    <link rel="stylesheet" href="PesquisaPi.css">
+</head>
+
+<body>
+    
+    <div class="navigation">
+        <ul>
+            <li class="list">
+                <span class="title" style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
+            </li>
+            <li>
+                <span class="title" style="color: rgb(0, 0, 82); font-size: large; text-align: center;padding-left: 80px;">Olá, Cliente</span>
+            </li><br>
+            <li>
+                <a href="DashFinal.html">
+                    <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura Atual</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="DashTemSemanal.html">
+                    <span class="icon"> <ion-icon name="stats-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura Semanal</span>
+                </a>
+            </li>
+            <li class="list">
+             <a href="DashTempAnual.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura média Anual</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="DashPesquisa.html">
+                    <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                    <span class="title">Pesquisa</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="C:\Users\pedro\Documents\SPtech_school\Brandão-Pi\FreezeWay\Sprint2\site\index.html">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <table id="tabela1">
+        <thead>
+            <tr style="color:white;">
+                <th>Caminhão</th>
+                <th>Nível do Problema</th>
+                <th>Data do defeito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Caminhão A</td>
+                <td>Alto</td>
+                <td>2024-04-01</td>
+            </tr>
+            <tr>
+                <td>Caminhão B</td>
+                <td>Médio</td>
+                <td>2024-04-03</td>
+            </tr>
+            <tr>
+                <td>Caminhão C</td>
+                <td>Baixo</td>
+                <td>2024-04-05</td>
+            </tr>
+            <tr>
+                <td>Caminhão D</td>
+                <td>Baixo</td>
+                <td>2024-04-10</td>
+            </tr>
+            <tr>
+                <td>Caminhão E</td>
+                <td>Médio</td>
+                <td>2024-04-14</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <table id="tabela2">
+        <thead>
+            <tr style="color: white;">
+                <th>Cód. Rastreio</th>
+                <th>Dia</th>
+                <th>Temperatura Média</th>
+                <th>Nível Variação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Caminhão A</td>
+                <td>2024-04-09</td>
+                <td>-14°C</td>
+                <td>Alto</td>
+            </tr>
+            <tr>
+                <td>Caminhão B</td>
+                <td>2024-04-25</td>
+                <td>-18°C</td>
+                <td>baixo</td>
+            </tr>
+        </tbody>
+        <div class="pesquisa">
+            <h1 style="color: black;">Pesquisa</h1>
+        </div>
+    </table>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) =>
+            item.addEventListener('click', activeLink));
+    </script>
+</body>
+
+</html>
