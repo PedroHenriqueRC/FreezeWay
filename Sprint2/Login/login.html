@@ -15,22 +15,22 @@
     </div>
 
     <div class="imagemLogin">
-        <img class="imgLogin" src="img/frezzeWay.png">
+        <img class="imgLogin" src="..//cadastro/img/Imagem telas original tudo freezeway.png">
     </div>
 
     <div class="formLogin">
         <div class="containerLogin">
-            <form id="login">
+            <div id="login">
                 <h2 class="tituloLogin">Login</h2>
                 <p class="loginP">E-mail</p><br>
-                <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br><br>
+                <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br>
                 <p class="loginP">Senha</p><br>
-                <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha"><br><br>
+                <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha">
                 <br><br>
                 <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p><br><br>
                 <button onclick="login()">Login</button>
                 <p class="pLogin">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
-            </form>
+            </div>
         </div>
     </div>
 </body>
@@ -49,22 +49,17 @@
         var tamanhoSenha = senha.lenght;
 
         if (termina_com_com == false) {
-            idMsg.style.display = "flex";
-            p_msg.innerHTML = 'Email inválido tem que terminar com ".com"';
+            alert('Email inválido tem que terminar com ".com"');
         }
         if (posicaoArroba < 0) {
-            idMsg.style.display = "flex";
-            p_msg.innerHTML = ("Email tem que possuir arroba");
+            alert("Email tem que possuir arroba");
         }
 
-        if (tamanhoSenha < 6) {
-            idMsg.style.display = "flex";
-            p_msg.innerHTML = ("Senha tem que ter mais de 6 caracteres");
+        if (tamanhoSenha < 8) {
+            alert("Senha tem que ter mais de 8 ou mais caracteres");
         } else {
-
+            window.location.href = "../DashboardFinal/DashFinal.html";
         }
-
-
 
     }
 
