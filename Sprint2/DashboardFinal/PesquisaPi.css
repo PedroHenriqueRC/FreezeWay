@@ -1,10 +1,31 @@
 
-#pesquisab{
-    background-color: white;
-    width: 100px;
-    height: 100px;
-    border-bottom: 10px;
+h1{
+    color: black;
+    position: absolute;
+    top: 0px;
+    left: 45%;
+}
+
+#Caixa_Pesquisa{
+    padding-left: 1%;
+    border: 0.5px solid gray;
     border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    width: 375px;
+    height: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pesquisab{
+
+  flex-direction: row;
+    color: #525252;
+    width: 45px;
+  
 }
 
 * {
@@ -50,7 +71,7 @@ body {
 /* Estilos para a tabela */
 table {
     
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     border-collapse: collapse;
 }
@@ -147,15 +168,14 @@ a {
 #tabela1{
    position: absolute;
    top: 13%;
-  left: 200px;
+  left: 330px;
   color: black;
-
 }
 
 #tabela2{
     position: absolute;
     bottom: 20%;
-    left: 200px;
+    left: 330px;
     color: black;
     
 }

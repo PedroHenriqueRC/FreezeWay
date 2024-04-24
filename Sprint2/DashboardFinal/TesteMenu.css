@@ -98,7 +98,7 @@
     background:skyblue;
 }
 .navigation ul li.active a::before{
-     content: '' ;
+    content: '' ;
     position: absolute;
     top: -30px;
     right: 0;
