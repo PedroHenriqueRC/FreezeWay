@@ -48,45 +48,51 @@
     border-radius: 10px 10px 10px 10px;
     width: 90px;
     height: 90px;   
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .linkMenu1{
     text-decoration: none;
     list-style: none;
-    margin-right: 15px;
+    margin-right: 40px;
     margin-bottom: 23px;
     color: aliceblue;
     transition: 400ms;
 }
 
 .linkMenu1:hover{
-    background: #eeeff7;
+    background: #000d6e;
     font-size: 15px;
     border-radius: 10px 10px 10px 10px;
-    width: 80px;
-    margin-right: 25px;
+    width: 180px;
+    margin-right: 45px;
     height: 20px;
-    color: #020f58;
+    color: #eeeeee;
 }
 
 .linkMenu2{
     text-decoration: none;
     list-style: none;
-    margin-right: 15px;
+    margin-right: 25px;
     margin-bottom: 23px;
     color: aliceblue;
     transition: 400ms;
 }
 
 .linkMenu2:hover{
-    background: #eeeff7;
+    background: #000d6e;
     font-size: 15px;
     border-radius: 10px 10px 10px 10px;
-    width: 50px;
+    width: 80px;
     margin-right: 25px;
     height: 20px;
-    color: #020f58;
+    color: #eef0f8;
+}
+
+.barra{
+    color: #eeeeee;
+    margin-right: 20px;
+    margin-bottom: 15px;
 }
 
 .logo{
@@ -104,26 +110,35 @@
 }
 
 .animated{
-    width: 650px;
+    width: 550px;
+    margin-left: 190px;
 }
 
 .containerP{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    margin-right: 200px;
+    margin-right: 19    0px;
 }
 
 
 .p1{
     margin-top: 50px;
     font-size: 70px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Mukta", sans-serif;
     color: #020f58;
+    margin-left: 30px;
 }
 
 .p2{
     font-size: 170px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Mukta", sans-serif;
     color: #020f58;
+    margin-top: -100px;
+    margin-left: 35px;
+}
+
+.pTexto{
+    font-size: 25px;
+    margin-left: 15px;
 }
