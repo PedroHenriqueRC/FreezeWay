@@ -174,8 +174,14 @@ a {
 
 #tabela2{
     position: absolute;
+    padding-top: 20px;
     bottom: 20%;
     left: 330px;
     color: black;
     
+}
+#tabelas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
