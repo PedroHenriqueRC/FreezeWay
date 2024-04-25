@@ -17,7 +17,7 @@
             -ms-user-select: none;
             user-select: none;
         } 
-    </style>
+        </style>
 </head>
 
 <body>
@@ -63,42 +63,42 @@
     </div>
     
     <h1>Captura da Temperatura Atual</h1>
-    
     <div class="body">
+    <div class="area-parametros-alerta">
+        <p class="titulo-legenda">
+        De olho na Temperatura
+    </p>
+    <div class="parametros-alerta">
+        <div class="item-regua perigo-frio">
+            <p>Congelada</p>
+            <p>&lt;= -25°C</p>
+        </div>
+        <div class="item-regua alerta-frio">
+            <p>Boa</p>
+            <p>&lt;= -20°C</p>
+        </div>
+        <div class="item-regua ideal">
+            <p>Ideal</p>
+            <p>-15°C</p>
+        </div>
+        <div class="item-regua alerta-quente">
+            <p>Atenção</p>
+            <p>&gt;= -12°C</p>
+        </div>
+        <div class="item-regua perigo-quente">
+            <p>Perigo</p>
+            <p>&gt;= -8°C</p>
+        </div>
+    </div>
+</div>
+
         <section style="width: 90%;">
             <canvas id="lm35Temperatura"></canvas>
         </section>
     </div>
-    <div class="area-parametros-alerta">
-        <p class="titulo-legenda">
-            De olho na Temperatura
-        </p>
-        <div class="parametros-alerta">
-            <div class="item-regua perigo-frio">
-                <p>Congelada</p>
-                <p>&lt;= -25°C</p>
-            </div>
-            <div class="item-regua alerta-frio">
-                <p>Boa</p>
-                <p>&lt;= -20°C</p>
-            </div>
-            <div class="item-regua ideal">
-                <p>Ideal</p>
-                <p>-15°C</p>
-            </div>
-            <div class="item-regua alerta-quente">
-                <p>Atenção</p>
-                <p>&gt;= -12°C</p>
-            </div>
-            <div class="item-regua perigo-quente">
-                <p>Perigo</p>
-                <p>&gt;= -8°C</p>
-            </div>
-        </div>
-    </div>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
     <script>
         const list = document.querySelectorAll('.list');
         function activeLink(){
