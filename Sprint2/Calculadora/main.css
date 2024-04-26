@@ -202,3 +202,104 @@
     font-family: "Mukta", sans-serif;
 }
 
+#boddy{
+    display: flex;
+    flex-direction: inline;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.explicacao{
+    border-left: 25px;
+    padding-top: 8px;
+    width: 500px;
+    font-size: large;
+    /* color: white;
+    border: 6px solid #020f58;
+    border-radius: 3px; */
+    color:  #020f58;
+}
+
+.primeiroCalculo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    
+    display: flex;
+    width: 700px;
+    height: 400px;
+    
+    color: white;
+    font-size: large;
+    
+    
+    border-left: 25px;
+    border: 6px solid #020f58;
+    border-radius: 20px;
+    background-color: grey;
+
+}
+
+button{
+    border: 3px solid #020f58;
+    width: 100px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #ffffff;
+    background-color: #020f58;
+}
+
+.boddy{
+    
+    padding: 5% 15% 5% 2%; 
+    display: flex;
+    align-items: flex-start;
+    justify-content:space-evenly;
+}
+
+.segundoCalculo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    
+    display: flex;
+    width: 500px;
+    height: 300px;
+    
+    color: white;
+    font-size: large;
+    
+    
+    border-left: 25px;
+    border: 6px solid #020f58;
+    border-radius: 20px;
+    background-color: grey;
+}
+
+#mostrartudo{
+    padding-left: 10%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    
+    display: flex;
+    width: 1000px;
+    height: 1000px;
+/*     
+    color: white;
+    font-size: large;
+    
+    
+    border-left: 25px;
+    border: 6px solid #020f58;
+    border-radius: 20px;
+    background-color: grey; */
+}
