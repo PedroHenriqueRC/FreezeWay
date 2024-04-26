@@ -39,26 +39,23 @@
 
 <script>
     function login() {
-
         var email = email_empresa.value;
         var senha = primeira_senha.value;
-
         var termina_com_com = email.endsWith(".com");
         var posicaoArroba = email.indexOf("@");
-
         var tamanhoSenha = senha.lenght;
+        var emailMocado = "teste@user.com";
+        var senhaMocada = 123456789;
 
-        if (termina_com_com == false) {
-            alert('Email inválido tem que terminar com ".com"');
+        if (email != "" || senha != "") {
+            if(email == emailMocado && senha == senhaMocada){
+                window.location.href = "../DashboardFinal/DashFinal.html";
+            }else{
+                alert("Dados inválidos, preencha o email e senha corretamente");
+            }
         }
-        if (posicaoArroba < 0) {
-            alert("Email tem que possuir arroba");
-        }
-
-        if (tamanhoSenha < 8) {
-            alert("Senha tem que ter mais de 8 ou mais caracteres");
-        } else {
-            window.location.href = "../DashboardFinal/DashFinal.html";
+        else {
+           alert("Preencha todos os campos");
         }
 
     }
