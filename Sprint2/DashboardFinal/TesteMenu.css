@@ -120,21 +120,27 @@
    box-shadow: 15px -15px 0 skyblue;
 }
 
-h1{
-    position: absolute;
-    top: 15%;
+.body{
+  margin-top: 50px;
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 600px;
 }
 
+.canva2{
+  width: 60%;
+}
 
 .area-parametros-alerta {
     border: 2px solid rgb(0, 0, 0);
     flex-direction: column; 
     position: absolute;
     bottom:20%;
-    left:450px;
+    left: 390px;
     width:40%;
-    margin: auto;
-    margin-top: 0px;
     background-color: skyblue;
   }
   
@@ -177,7 +183,7 @@ h1{
     background-color: #1eff00;
   }
   
-  .perigo-quente {
+  .alerta-perigo {
     border: 1px solid rgb(0, 0, 0);
     background-color: #ff0000;
   }

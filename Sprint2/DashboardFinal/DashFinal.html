@@ -19,6 +19,7 @@
             -webkit-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            width: 100%;
         }
     </style>
 </head>
@@ -66,9 +67,14 @@
             </li>
         </ul>
     </div>
-
-    <h1>Captura da Temperatura Atual</h1>
+    
     <div class="body">
+        <h1>Captura da Temperatura Atual</h1>
+        <div class="canva">
+            <section style="width: 90%;">
+                <canvas id="lm35Temperatura"></canvas>
+            </section>
+        </div>
         <div class="area-parametros-alerta" style="display: flex;justify-content: end;align-items: end;">
             <p class="titulo-legenda">
                 De olho na Temperatura
@@ -90,18 +96,15 @@
                     <p>Atenção</p>
                     <p>&gt;= -12°C</p>
                 </div>
-                <div class="item-regua perigo-quente">
+                <div class="item-regua alerta-perigo">
                     <p>Perigo</p>
                     <p>&gt;= -8°C</p>
                 </div>
             </div>
         </div>
 
-
-        <section style="width: 90%;">
-            <canvas id="lm35Temperatura"></canvas>
-        </section>
     </div>
+
 
 
 
@@ -119,7 +122,6 @@
                         label: 'Temperatura Atual',
                         type: 'line',
                         borderColor: ['black'],
-                        backgroundColor: ['white'],
                         borderWidth: 3
                     }]
                 },
@@ -177,6 +179,12 @@
                 grafico.data.datasets[0].data.push(parseFloat(valor));
                 grafico.update();
             })
+            // if(valores <= -8){
+            //     alerta5.innerHTML = `Temperatura alta demais`;
+            // } else{
+            //     alerta5.innerHTML = `<p>Perigo</p>
+            //         <p>&gt;= -8°C</p>`
+            // }   
         }
 
         setInterval(() => {
