@@ -51,11 +51,11 @@
             </li>
         </ul>
     </div>
-    <div class="body">
+    <div class="body" style="width: 100%;">
         <h1>Analise Temperatura Média Semanal</h1>
     
         <div class="canva2">
-            <canvas id="myChart2" style="height:50vh; width: 50vw;top: 50%;left: 50%;"></canvas>
+            <canvas id="myChart2" style="width: 100%;"></canvas>
         </div>
     </div>
 
@@ -64,16 +64,16 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
-    <script>
-        const list = document.querySelectorAll('.list');
-        function activeLink(){
-            list.forEach((item) =>
-            item.classList.remove('active'));
-            this.classList.add('active');
-        }
+<script>
+    const list = document.querySelectorAll('.list');
+    function activeLink(){
         list.forEach((item) =>
-        item.addEventListener('click', activeLink));
-    </script> 
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+    item.addEventListener('click', activeLink));
+</script> 
 
     <script>
         const labels2 = [
@@ -88,8 +88,8 @@
             labels: labels2,
             datasets: [{
                 label: 'Temperatura média Semanal',
-                backgroundColor: 'rgb(0,0,25)',
-                bordercolor: 'rgb(0,0,254)',
+                backgroundColor: 'rgb(135,206,235)',
+                bordercolor: 'rgb(135,206,235)',
                 data: [-15, -19, -17, -15, -20, -22],
             },
             ]

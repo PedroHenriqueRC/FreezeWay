@@ -121,7 +121,10 @@
                     datasets: [{
                         label: 'Temperatura Atual',
                         type: 'line',
-                        borderColor: ['black'],
+                        // backgroundColor: 'rgb(135,206,235)',
+                        // backgroundColor: 'rgb(115,215,255)',
+                        borderColor: 'rgb(135,206,235)',
+                        // borderColor: 'rgb(0,0,25)',
                         borderWidth: 3
                     }]
                 },
@@ -151,47 +154,47 @@
         );
 
         
-        var paginacao = {};
-        var tempo = {};
-        function obterDados(grafico, endpoint) {
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
-            http.send(null);
-            var valores = JSON.parse(http.responseText);
-            if (paginacao[endpoint] == null) {
-                paginacao[endpoint] = 0;
-            }
-            if (tempo[endpoint] == null) {
-                tempo[endpoint] = 0;
-            }
-            // Exibir à partir do último elemento exibido anteriormente
-            var ultimaPaginacao = paginacao[endpoint];
-            paginacao[endpoint] = valores.length;
-            var valores = valores.slice(ultimaPaginacao);
-            valores.forEach((valor) => {
-                //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                    grafico.data.labels.shift();
-                    grafico.data.datasets[0].data.shift();
-                }
+    //     var paginacao = {};
+    //     var tempo = {};
+    //     function obterDados(grafico, endpoint) {
+    //         var http = new XMLHttpRequest();
+    //         http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
+    //         http.send(null);
+    //         var valores = JSON.parse(http.responseText);
+    //         if (paginacao[endpoint] == null) {
+    //             paginacao[endpoint] = 0;
+    //         }
+    //         if (tempo[endpoint] == null) {
+    //             tempo[endpoint] = 0;
+    //         }
+    //         // Exibir à partir do último elemento exibido anteriormente
+    //         var ultimaPaginacao = paginacao[endpoint];
+    //         paginacao[endpoint] = valores.length;
+    //         var valores = valores.slice(ultimaPaginacao);
+    //         valores.forEach((valor) => {
+    //             //Máximo de 60 itens exibidos no gráfico
+    //             if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+    //                 grafico.data.labels.shift();
+    //                 grafico.data.datasets[0].data.shift();
+    //             }
 
-                grafico.data.labels.push(tempo[endpoint]++);
-                grafico.data.datasets[0].data.push(parseFloat(valor));
-                grafico.update();
-            })
-            // if(valores <= -8){
-            //     alerta5.innerHTML = `Temperatura alta demais`;
-            // } else{
-            //     alerta5.innerHTML = `<p>Perigo</p>
-            //         <p>&gt;= -8°C</p>`
-            // }   
-        }
+    //             grafico.data.labels.push(tempo[endpoint]++);
+    //             grafico.data.datasets[0].data.push(parseFloat(valor));
+    //             grafico.update();
+    //         })
+    //         // if(valores <= -8){
+    //         //     alerta5.innerHTML = `Temperatura alta demais`;
+    //         // } else{
+    //         //     alerta5.innerHTML = `<p>Perigo</p>
+    //         //         <p>&gt;= -8°C</p>`
+    //         // }   
+    //     }
 
-        setInterval(() => {
-            obterDados(lm35Temperatura, 'lm35/temperatura');
-        }, 1000);
+    //     setInterval(() => {
+    //         obterDados(lm35Temperatura, 'lm35/temperatura');
+    //     }, 1000);
 
-        // Configuração do menu
+    //     // Configuração do menu
 
         const list = document.querySelectorAll('.list');
         function activeLink() {
@@ -201,7 +204,7 @@
         }
         list.forEach((item) =>
             item.addEventListener('click', activeLink));
-    </script>
+    // </script>
 </body>
 
 </html>

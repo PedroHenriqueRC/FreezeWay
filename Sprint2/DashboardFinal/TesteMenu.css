@@ -139,13 +139,13 @@
     flex-direction: column; 
     position: absolute;
     bottom:20%;
-    left: 390px;
+    left: 520px;
     width:40%;
     background-color: skyblue;
   }
   
   .area-parametros-alerta .titulo-legenda {
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     width: fit-content;
     margin: 10px 20px;
@@ -198,3 +198,47 @@
     background-color: #ff5f2e;
   }
   
+  #Caixa_Pesquisa{
+    padding-left: 1%;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    position: absolute;
+    top: 50px;
+    width: 375px;
+    left: 585px;
+    height: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pesquisab{
+
+  flex-direction: row;
+    color: #525252;
+    width: 45px;
+  
+}
+
+table {
+    
+  width: 60%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #000000;
+  padding: 15px;
+}
+th {
+  background-color: #525252;
+}
+#tabela2{
+  position: absolute;
+  padding-top: 20px;
+  bottom: 20%;
+  left: 330px;
+  color: black;
+  font-weight: bold;
+}
