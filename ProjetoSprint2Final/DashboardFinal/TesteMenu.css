@@ -1,0 +1,244 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+/*width: 100%;
+    height: 100%;*/
+}
+ body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+
+}  
+/* .header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 90px;
+    border-bottom: 2px solid #ffffff;
+}
+.conteiner {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+} */
+
+.navigation{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 750px;
+    background: #424244;
+    width: 75px;
+    box-shadow: 10px 0px 0px skyblue;
+    border-left: 10px solid #424244;
+    overflow-x: hidden;
+    transition: 0.5s;
+
+}
+.navigation:hover{
+    width: 275px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+.navigation ul li{
+    position: relative;
+    list-style:none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none; 
+    color: #ffffff;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+     text-align: center; 
+    line-height: 70px;
+
+}
+.navigation ul li a .icon ion-icon{
+     position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+} 
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+.navigation ul li.active{
+    background:skyblue;
+}
+.navigation ul li.active a::before{
+    content: '' ;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background:#424244;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 skyblue;
+}
+.navigation ul li.active a::after{
+   content: '' ;
+   position: absolute;
+   bottom: -30px;
+   right: 0;
+   width: 30px;
+   height: 30px;
+   background:#424244;
+   border-radius: 50%;
+   box-shadow: 15px -15px 0 skyblue;
+}
+
+.body{
+  margin-top: 50px;
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 600px;
+}
+
+.canva2{
+  width: 60%;
+}
+
+.area-parametros-alerta {
+    border: 2px solid rgb(0, 0, 0);
+    flex-direction: column; 
+    position: absolute;
+    bottom:20%;
+    left: 520px;
+    width:40%;
+    background-color: skyblue;
+  }
+  
+  .area-parametros-alerta .titulo-legenda {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    width: fit-content;
+    margin: 10px 20px;
+  }
+  
+  .parametros-alerta {
+    display: flex;
+    width: 100%;
+  }
+  
+  .item-regua {
+    width: 20%;
+    text-align: center;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
+  
+  .item-regua p {
+    margin: 0;
+    font-weight: 500;
+  }
+  .item-regua.ideal {
+    border:1px solid black;
+    border-top: 1px solid black;
+  }
+  .item-regua p:nth-child(2) {
+    font-weight: 800;
+  }
+  
+  .perigo-frio {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #1eff00;
+  }
+  
+  .alerta-perigo {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ff0000;
+  }
+  
+  .alerta-frio {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #70ff77;
+  }
+  
+  .alerta-quente {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ff5f2e;
+  }
+  
+  #Caixa_Pesquisa{
+    padding-left: 1%;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    position: absolute;
+    top: 50px;
+    width: 375px;
+    left: 585px;
+    height: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pesquisab{
+
+  flex-direction: row;
+    color: #525252;
+    width: 45px;
+  
+}
+
+table {
+    
+  width: 60%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #000000;
+  padding: 15px;
+}
+th {
+  background-color: #525252;
+}
+#tabela2{
+  position: absolute;
+  padding-top: 20px;
+  bottom: 20%;
+  left: 330px;
+  color: black;
+  font-weight: bold;
+}

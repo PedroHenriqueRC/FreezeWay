@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="paiCadastro">
+
+        <div class="imagemcadastro">
+            <img class="imgCadastro" src="img/Imagem telas original tudo freezeway.png" alt="">
+        </div>
+        <div class="formCadastro">
+            <div class="containercadastro">
+                <div id="cadastro">
+                    <h2 class="tituloCadastro">Cadastre-se</h2>
+                    <p class="pCadastro">Empresa</p><br>
+                    <input type="text" id="nome_empresa" required="required"
+                        placeholder="Informe o nome da sua empresa">
+                    <p class="pCadastro">CNPJ da Empresa</p><br>
+                    <input type="text" id="cnpj_empresa" required="required"
+                        placeholder="Informe o CNPJ da empresa sem traços ou pontos">
+                    <p class="pCadastro">E-mail</p><br>
+                    <input type="text" id="email_empresa" required="@" placeholder="Informe o email da empresa">
+                    <p class="pCadastro">Senha</p><br>
+                    <input type="password" id="primeira_senha" required="required" placeholder="Digite sua senha">
+                    <p class="pCadastro">Confirme a Senha</p><br>
+                    <input type="password" id="segunda_senha" required="required"
+                        placeholder="Digite sua senha novamente">
+                    <br><br>
+                    <button onclick="cadastrar()">Cadastrar</button><br><br><br>
+                    <p class="cadastroP">Já é cadastrado? <a href="../Login/login.html">login</a></p>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        var cnpj = cnpj_empresa.value;
+        var email = email_empresa.value;
+        var senha = primeira_senha.value;
+        var senha2 = segunda_senha.value;
+        var posicaoArroba = email.indexOf("@");
+        var posicaoPonto = cnpj.indexOf(".");
+        var posicaoBarra = cnpj.indexOf("/");
+        var tamanhoCnpj = cnpj.length;
+        var terminaCCom = email.endsWith(".com");
+        var tamanhoSenha = senha.length;
+        var nomeEmpresa = nome_empresa.value;
+
+        if (nomeEmpresa == "" || cnpj == "" || email == "" || senha == "" || senha2 == "") {
+            alert("Preencha todos os campos");
+        } else {
+            if (tamanhoCnpj == 14) {
+                if (posicaoPonto >= 0 || posicaoBarra >= 0) {
+                    alert("O cnpj nao pode conter pontos ou barra");
+                } else {
+                    if (posicaoArroba < 0) {
+                        alert("O email precisa conter '@'");
+                    } else {
+                        if (terminaCCom == false) {
+                            alert("O email precisa terminar com '.com'");
+                        } else {
+                            if (tamanhoSenha >= 8) {
+                                if (senha == senha2) {
+                                    window.location.href = "../Login/login.html";
+                                }else{
+                                    alert("As senhas devem ser iguais!!");
+                                }
+                            } else {
+                                alert("A senha deve conter 8 ou mais caracteres");
+                            }
+                        }
+                    }
+                }
+            } else {
+                alert("O cnpj tem que ter 14 caraceteres");
+            }
+        }
+    }
+
+</script>

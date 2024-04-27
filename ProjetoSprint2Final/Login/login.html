@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site institucional</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="imagemLogin">
+        <img class="imgLogin" src="..//cadastro/img/Imagem telas original tudo freezeway.png">
+    </div>
+
+    <div class="formLogin">
+        <div class="containerLogin">
+            <div id="login">
+                <h2 class="tituloLogin">Login</h2>
+                <p class="loginP">E-mail</p><br>
+                <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br>
+                <p class="loginP">Senha</p><br>
+                <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha">
+                <br><br>
+                <p class="esqueceuASenha">Esqueceu sua senha? <a href="#">Redefinir</a></p><br><br>
+                <button onclick="login()">Login</button>
+                <p class="pLogin">Não é cadastrado? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function login() {
+        var email = email_empresa.value;
+        var senha = primeira_senha.value;
+        var termina_com_com = email.endsWith(".com");
+        var posicaoArroba = email.indexOf("@");
+        var tamanhoSenha = senha.lenght;
+        var emailMocado = "teste@user.com";
+        var senhaMocada = 123456789;
+
+        if (email != "" || senha != "") {
+            if(email == emailMocado && senha == senhaMocada){
+                window.location.href = "../DashboardFinal/DashFinal.html";
+            }else{
+                alert("Dados inválidos, preencha o email e senha corretamente");
+            }
+        }
+        else {
+           alert("Preencha todos os campos");
+        }
+
+    }
+
+
+</script>

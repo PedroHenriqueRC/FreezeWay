@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DashBoard - Temperatura Semanal</title>
+        <link rel="stylesheet" href="TesteMenu.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;background-color: rgb(255, 255, 255);" >
+
+    <div class="navigation">
+        <ul>
+            <li class="list">
+                <span class="title" style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
+            </li>
+            <li>
+                <span class="title" style="color:white; font-size: large; text-align: center;padding-left: 80px;">Olá,Fernando</span>
+            </li><br>
+            <li>
+                <a href="DashFinal.html">
+                            <span class="icon"><ion-icon name="thermometer-outline"></ion-icon></span>
+                            <span class="title">Temperatura Atual</span>
+                        </a>
+            </li>
+            <li class="list active">
+                <a href="DashTemSemanal.html">
+                    <span class="icon"> <ion-icon name="stats-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura Semanal</span>
+                </a>
+            </li>
+            <li class="list">
+             <a href="DashTempAnual.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura média Anual</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="DashPesquisa.html">
+                    <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                    <span class="title">Pesquisa</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="../site/index.html">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="body" style="width: 100%;">
+        <h1>Analise Temperatura Média Semanal</h1>
+    
+        <div class="canva2">
+            <canvas id="myChart2" style="width: 100%;"></canvas>
+        </div>
+    </div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<script>
+    const list = document.querySelectorAll('.list');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+    item.addEventListener('click', activeLink));
+</script> 
+
+    <script>
+        const labels2 = [
+            'Segunda-Feira',
+            'Terça-Feira',
+            'Quarta-Feira',
+            'Quinta-Feira',
+            'Sexta-Feira',
+        ];
+
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Temperatura média Semanal',
+                backgroundColor: 'rgb(135,206,235)',
+                bordercolor: 'rgb(135,206,235)',
+                data: [-15, -19, -17, -15, -20, -22],
+            },
+            ]
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {
+
+            }
+        };
+    </script>
+
+    <script>
+        
+        const myChart2 = new Chart(
+            document.getElementById("myChart2"),
+            config2
+        );
+    </script>
+
+</body>
+
+</html>

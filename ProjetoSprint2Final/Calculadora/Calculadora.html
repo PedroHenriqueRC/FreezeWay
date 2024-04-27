@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <title>FreezeWay - Calculadora Financeira</title>
+  <style>
+  #mostrartudo {
+    display: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+    padding: 20px;
+    margin: 0% 5% 5% 10%;
+    width: 100%;
+    height: 1100px;
+    left: 500px;
+}
+
+#exibir{
+    padding-left: 10%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+    margin: 0% 5% 5% 10%;
+
+    display: none;
+    width: 100%;
+    height: 1100px;
+    left: 500px;
+    color: white;
+    font-size: large;
+    
+    
+    border-left: 25px;
+    border: 6px solid #020f58;
+    border-radius: 20px;
+    background-color: grey;
+}
+  </style>
+</head>
+
+<body>
+<<<<<<< HEAD
+  <div class="menu">
+    <div id="imagem">
+      <img class="logo" src="Logo FreezeWay logo branca sem fundo.png" alt="">
+=======
+    <div class="menu">
+        <div id="imagem">
+            <img class="logo" src="Logo FreezeWay logo branca sem fundo.png" alt="">
+        </div>
+        <h1 class="titulo">FreezeWay</h1>
+        <div class="borda">
+            <li class="menuItem">
+                <a class="linkMenu" href="../site/index.html">INICIO</a>
+            </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="../site/index.html">SOBRE NÓS</a>
+            </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="../site/index.html">SERVIÇOS</a>
+            </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="../site/index.html">CONTATO</a>
+            </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="../site/index.html">SIMULADOR</a>
+            </li>
+        </div>
+        <a class="linkMenu1" href="../cadastro/cadastro.html">CADASTRAR</a>
+        <h1 class="barra"> | </h1>
+        <a class="linkMenu2" href="../Login/login.html">LOGIN</a>
+>>>>>>> 67706297ba356754d72360af2db921c280d11c03
+    </div>
+    <h1 class="titulo">FreezeWay</h1>
+    <div class="borda">
+      <li class="menuItem">
+        <a class="linkMenu" href="index.html">INICIO</a>
+      </li>
+      <li class="menuItem">
+        <a class="linkMenu" href="#containerSobre">SOBRE NÓS</a>
+      </li>
+      <li class="menuItem">
+        <a class="linkMenu" href="#">SERVIÇOS</a>
+      </li>
+      <li class="menuItem">
+        <a class="linkMenu" href="#">CONTATO</a>
+      </li>
+      <li class="menuItem">
+        <a class="linkMenu" href="#">SIMULADOR</a>
+      </li>
+    </div>
+    <a class="linkMenu1" href="../cadastro/cadastro.html">CADASTRAR</a>
+    <h1 class="barra"> | </h1>
+    <a class="linkMenu2" href="../Login/login.html">LOGIN</a>
+  </div>
+
+  <h2 id="Sim" align="center" style=" color: #020f58;padding-top: 2%; padding: 2%;">Simulador Financeiro</h2>
+  <div id="boddy">
+    <div class="explicacao">
+      <h2>Como chegamos à essa conclusão?</h2>
+      <br>
+      <p>Segundo a Empresa Brasileira de Pesquisa Agropecuária (Embrapa), o maior
+        percentual <br>de desperdício ocorre durante o manuseio e<br> o transporte,
+        sendo que a perda pode chegar<br> até 29%. <br><br>
+
+        Segundo essa pesquisa e esse número, podemos calcular uma estimativa do quanto
+        é seu número <br>de perda no quesito dinheiro e produto, e podemos calcular uma
+        estimativa em relação aos ganhos <br>que nosso produto poderá oferecê-lo.<br><br>
+
+        Ao Lado, você poderá vizualizar todos os valores <br>e como chegamos ao calculo:
+      </p>
+    </div>
+
+    <div class="primeiroCalculo">
+      <h3 style=" color: #020f58;">Para descobrirmos o percentual de ganho, precisamos saber: <br>
+        <br> Qual a média por entrega que você carrega em
+        seus caminhões?
+      </h3>
+      <br><br>
+      <p>Insira abaixo a quantidade de pacotes enviadas em cada entrega: </p>
+      <input type="text" id="quantidade" placeholder="Quantidade">
+      <p>Insira abaixo o valor de cada produto:</p>
+      <input type="text" id="valor" placeholder="Preço">
+      <p>Insira abaixo o peso de cada pacote individualmente (em kg):</p>
+      <input type="text" id="quilograma" placeholder="Peso">
+      <br><br>
+      <button onclick="calcularganho()">Calcular</button>
+    </div>
+  </div>
+  <div class="boddy">
+    <div class="segundoCalculo"  align="center">
+      <h2 style=" color: #020f58;">Quer saber a longo prazo quais seriam seus ganhos?</h2><br>
+      <p>Insira abaixo quantas entregas médias são feitas durante um mês: </p>
+      <input type="text" id="mes" placeholder="Média de entrega por Mês">
+      <br><br>
+      <p>Insira abaixo o quanto tempo que quer calcular (em meses): </p>
+      <input type="text" id="tempo" placeholder="Tempo em meses">
+      <br><br>
+      <button onclick="calculartempo()">Calcular</button>
+    </div>
+    <div id="mostrartudo" align="center">
+      <div id="exibir"></div>
+    </div>
+  </div>
+
+  <script>
+    var preco = 0;
+    var valtotal = 0;
+    var qtd = 0;
+    var kg = 0;
+    var pesototal = 0;
+    var porcganho = 0;
+    var porcqtd = 0;
+    var ganho = 0;
+    var perda = 0;
+    var ganhofinal = 0;
+    var exibir = document.getElementById('exibir'); 
+
+    function calcularganho() {
+      qtd = Number(quantidade.value);
+      preco = Number(valor.value);
+      kg = Number(quilograma.value);
+
+      valtotal = preco * qtd;
+      pesototal = qtd * kg;
+
+      porc = valtotal * 0.29;
+      ganho = valtotal - porc;
+      porcqtd = qtd * 0.29;
+      perda = qtd - porcqtd;
+
+      ganhofinal = porc * 0.50;
+
+      document.getElementById('exibir').style.display = 'block'; 
+
+      exibir.innerHTML = `<h3 style=" color: #020f58;">Resultados:</h3><p>A quantidade de carga no caminhão por entrega é de: ${qtd} pacotes. <br>
+    <br> O valor total da carga é de: R$${valtotal.toFixed(2)} reais<br>
+         O valor total foi calculado através de: preço x quantidade.<br>
+    <br> e o peso total da carga do caminhão é: ${pesototal.toFixed(2)}<br>
+         Calculado através de: quantidade x peso.<br>
+    <br> o valor de perda de mercadoria no transporte é de até: R$${porc.toFixed(2)} reais<br>
+         Calculado através de: valor total x 29%.<br>
+    <br> o valor final da carga é de: R$${ganho.toFixed(2)} reais<br>
+         Calculado através de: valor total - 29%.<br>
+    <br> a perda de pacotes no caminhão é: ${porcqtd.toFixed(2)} pacotes<br>
+         Calculado através de: quantidade x 29%.<br>
+    <br><span class="mensagem"> Com o nosso projeto, você deixa de perder R$${ganhofinal.toFixed(2)} reais<span></p>
+        <p>Calculado através de: valor de Perda - 50% </p>
+            <p>(50% é a nossa garantia de ganho)</p>`
+
+    }
+
+    function calculartempo() {
+      var meses = Number(document.getElementById('tempo').value);
+      var qtd_entrega = Number(document.getElementById('mes').value);
+
+      var porcmes = qtd_entrega * porc;
+      var ganhomes = qtd_entrega * ganho
+      var qtd_entrega_mes = qtd_entrega * porcqtd;
+      var perdames = qtd_entrega * perda;
+
+      var porcfinal = porcmes * meses;
+      var ganhofim = ganhomes * meses;
+      var qtdentregafinal = qtd_entrega_mes * meses;
+      var perdafinal = perdames * meses;
+
+      var final = porcfinal * 0.50;
+
+      exibir.innerHTML +=
+        `<br><br><h3 style=" color: #020f58;">Calculo Por Meses:</h3> 
+            <p>Durante ${meses} meses você tem os seguintes números:<br>
+        <br>A quantidade de carga no caminhão total é de: ${qtd * qtdentregafinal} pacotes. <br>
+        <br> O valor total da carga é de: R$${(valtotal * qtd_entrega) * meses.toFixed(2)} reais<br>
+             O valor total foi calculado através de: (preço x quantidade) x meses.<br>
+        <br> O valor de perda da mercadoria no transporte durante ${meses} meses é de até: R$${porcfinal.toFixed(2)} reais<br>
+             Calculado através de: (valor total x 29%) x meses.<br>
+        <br> O valor final da carga durante ${meses} meses é de: R$${ganhofim.toFixed(2)} reais<br>
+             Calculado através de: (valor total - 29%) x meses.<br>
+        <br> A perda de pacotes no caminhão durante ${meses} meses é: ${qtdentregafinal.toFixed(2)} pacotes<br>
+             Calculado através de: (quantidade x 29%) x meses.<br>
+        <br><span class="mensagem"> Com o nosso projeto, durante ${meses} meses, você deixa de perder pelo menos R$${final.toFixed(2)} reais<span></p>
+            <p>Calculado através de: (valor economizado - 50%) x meses.</p>`
+    }
+
+  </script>
+
+</body>
+
+</html>
