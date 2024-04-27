@@ -120,26 +120,32 @@
    box-shadow: 15px -15px 0 skyblue;
 }
 
-h1{
-    position: absolute;
-    top: 15%;
+.body{
+  margin-top: 50px;
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 600px;
 }
 
+.canva2{
+  width: 60%;
+}
 
 .area-parametros-alerta {
     border: 2px solid rgb(0, 0, 0);
     flex-direction: column; 
     position: absolute;
     bottom:20%;
-    left:450px;
+    left: 520px;
     width:40%;
-    margin: auto;
-    margin-top: 0px;
     background-color: skyblue;
   }
   
   .area-parametros-alerta .titulo-legenda {
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     width: fit-content;
     margin: 10px 20px;
@@ -177,7 +183,7 @@ h1{
     background-color: #1eff00;
   }
   
-  .perigo-quente {
+  .alerta-perigo {
     border: 1px solid rgb(0, 0, 0);
     background-color: #ff0000;
   }
@@ -192,3 +198,47 @@ h1{
     background-color: #ff5f2e;
   }
   
+  #Caixa_Pesquisa{
+    padding-left: 1%;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    position: absolute;
+    top: 50px;
+    width: 375px;
+    left: 585px;
+    height: 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.pesquisab{
+
+  flex-direction: row;
+    color: #525252;
+    width: 45px;
+  
+}
+
+table {
+    
+  width: 60%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #000000;
+  padding: 15px;
+}
+th {
+  background-color: #525252;
+}
+#tabela2{
+  position: absolute;
+  padding-top: 20px;
+  bottom: 20%;
+  left: 330px;
+  color: black;
+  font-weight: bold;
+}

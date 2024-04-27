@@ -52,10 +52,12 @@
         </ul>
     </div>
     
-    <h1>Analise Temperatura Média Anual</h1>
-
-    <div>
-        <canvas id="myChart2" style="height:50vh; width: 50vw;top: 50%;left: 50%;"></canvas>
+    <div class="body" style="width: 100%;">
+        <h1>Analise Temperatura Média Anual</h1>
+    
+        <div class="canva2">
+            <canvas id="myChart2" style="width: 100%;"></canvas>
+        </div>
     </div>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -93,8 +95,8 @@
             labels: labels2,
             datasets: [{
                 label: 'Temperatura média Anual',
-                backgroundColor: 'rgb(0,0,25)',
-                bordercolor: 'rgb(0,0,254)',
+                backgroundColor: 'rgb(135,206,235)',
+                bordercolor: 'rgb(135,206,235)',
                 data: [-17, -20, -22, -23, -20, -18, -19, -20, -22, -17, -16, -15],
             },
             ]
