@@ -178,6 +178,8 @@ button{
     font-size: 15px;
     border: 1px solid #020f58;
     border-radius: 20px;
+    margin-left: 45px;
+    margin-right: 100px;
     background-color: rgba(28, 36, 104, 0.671);
 }
 
