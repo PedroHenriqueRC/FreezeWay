@@ -116,7 +116,7 @@
             </ion-icon>
             </div>
             <div >
-                <input type="text" placeholder="Pesquisa" style="width: 320px;background-color:white;height: 36px;border-radius: 10px;border: none;padding-left: 1%; " oninput="Pesquisa(this.valuex)">
+                <input type="text" id="Pesquisa" placeholder="Pesquisa" style="width: 320px;background-color:white;height: 36px;border-radius: 10px;border: none;padding-left: 1%; " oninput="Pesquisa(this.values)">
 
             </div>
     </div>
@@ -133,6 +133,11 @@
         }
         list.forEach((item) =>
             item.addEventListener('click', activeLink));
+
+        
+        function Pesquisa(){
+            alert("A função de Pesquisar ainda não está disponível nessa versão")
+        }
     </script>
 </body>
 
