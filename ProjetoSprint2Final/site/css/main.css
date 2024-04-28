@@ -128,7 +128,7 @@ body {
 
 .cardServico1{
     background: #5d7ff0;
-    height: 350px;
+    height: 380px;
     width: 350px;
     border-radius: 20px;
     align-items: center;
@@ -140,7 +140,7 @@ body {
 
 .cardServico2{
     background: #5d7ff0;
-    height: 350px;
+    height: 380px;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
@@ -152,7 +152,7 @@ body {
 
 .cardServico3{
     background: #5d7ff0;
-    height: 350px;
+    height: 380px;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
@@ -160,6 +160,14 @@ body {
     flex-direction: column;
     box-shadow: 4px 4px 4px 4px rgb(52, 85, 146);
     width: 350px;
+}
+
+.containerImgServico{
+    background: #eeeeee;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 .imgSvgServico{
