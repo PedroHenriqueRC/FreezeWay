@@ -14,14 +14,16 @@ body {
     align-items: end;
     width: 100%;
     height: 70px;
-    background-image: linear-gradient(to bottom, rgb(34, 56, 247), rgb(25, 51, 168), rgb(11, 9, 148), rgb(9, 9, 97));
+    background: rgba(148, 147, 147, 0.404);
+    backdrop-filter: blur(19.5px);
     justify-content: right;
+    position: fixed;
 }
 
 .borda {
     display: flex;
     margin-right: 160px;
-    border: 1px solid white;
+    border: 1px solid rgba(4, 30, 77, 0.39);
     border-radius: 15px 15px 15px 15px;
     justify-content: space-around;
     width: 750px;
@@ -100,9 +102,9 @@ body {
 }
 
 .logo {
-    width: 90px;
+    width: 55px;
     margin-right: 150px;
-    margin-bottom: 1px;
+    margin-bottom: 8px;
     margin-left: 20px;
 }
 
@@ -129,7 +131,6 @@ body {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width: 430px;
 }
 
 
@@ -156,11 +157,11 @@ body {
 
 .h1SobreNos {
     text-align: center;
-    margin-right: 58px;
+    margin-right: 68px;
     font-size: 45px;
     font-family: "Mukta", sans-serif;
-    margin-bottom: -75px;
     color: #eeeeee;
+    margin-bottom: -80px;
 }
 
 #containerSobre {
@@ -169,46 +170,28 @@ body {
     align-items: center;
     flex-direction: row;
     background: #1d295f;
-    height: 800px;
+    height: 490px;
     justify-content: space-evenly;
 }
 
-.textoSobrenos {
-    display: flex;
-    margin-top: 20px;
-    float: right;
-    font-size: 25px;
-    font-family: "Mukta", sans-serif;
-
+img{
+    width: 1343px;
 }
 
-.pSobreNos {
-    font-size: 20px;
-    margin-top: 300px;
-    color: #eeeeee;
-    font-family: "Mukta", sans-serif;
-    margin-right: 750px;
-}
-
-.barraSobreNos {
-    margin-left: 630px;
-    margin-top: -350px;
-    background: #000000;
-    height: 400px;
-    width: 5px;
+p{
     color: #eeeeee;
 }
 
-.pSobreNos2 {
-    font-size: 20px;
-    margin-left: 695px;
-    margin-top: -200px;
+.barraSobre{
     color: #eeeeee;
-    font-family: "Mukta", sans-serif;
+    height: 340px;
+    background: #eeeeee;
+    width: 2px;
 }
 
 .footer {
-    background-image: linear-gradient(to bottom, rgb(34, 56, 247), rgb(25, 51, 168), rgb(11, 9, 148), rgb(9, 9, 97), rgb(4, 4, 34), rgb(3, 3, 48), rgb(3, 3, 48));
+    background: rgba(163, 161, 212, 0.274);
+    backdrop-filter: blur(19.5px);
     padding: 30px 0px;
     font-family: 'Play', sans-serif;
     text-align: center;
@@ -218,13 +201,13 @@ body {
     width: 100%;
     margin: 1% 0%;
     padding: 0.6% 0%;
-    color: gray;
+    color: rgb(17, 11, 11);
     font-size: 0.8em;
 }
 
 .footer .row a {
     text-decoration: none;
-    color: gray;
+    color: rgb(0, 0, 0);
     transition: 0.5s;
 }
 
@@ -235,6 +218,22 @@ body {
 .footer .row a i {
     font-size: 2em;
     margin: 0% 1%;
+}
+
+.row1 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 400ms;
+}
+
+.row1 a:hover {
+    color: #0a0db4;
+}
+
+.row1 a i {
+    font-size: 2em;
+    margin: 0% 1%;
+    margin-left: 100px;
 }
 
 .tituloEquipe{
@@ -252,18 +251,19 @@ body {
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
+    margin-top: 105px;
 }
 
 .imgEquipe{
-    width: 230px;
-    height: 230px;
-    border-radius: 110px;
+    width: 250px;
+    height: 250px;
+    border-radius: 120px;
     box-shadow: #777777 1px 1px 5px 5px;
     transition: 400ms;
 }
 
 .imgEquipe:hover{
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .containerEquipe2{
@@ -273,17 +273,18 @@ body {
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
+    margin-top: 50px;
 }
 
 .tituloCard{
     margin-top: 10px;
     font-family: "Mukta", sans-serif;
-    margin-left: 25px;
+    margin-left: 30px;
     color: #000d6e;
 }
 
 .funcaoEquipe{
-    margin-left: 70px;
+    margin-left: 75px;
     font-size: 15px;
     color: #777777;
 }
