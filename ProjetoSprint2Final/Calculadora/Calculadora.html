@@ -9,20 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>FreezeWay - Calculadora Financeira</title>
   <style>
   #mostrartudo {
     display: none;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 10%;
-    padding: 20px;
+    justify-content: space-evenly;
     margin: 0% 5% 5% 10%;
     width: 100%;
     height: 1100px;
-    left: 500px;
 }
 
 #exibir{
@@ -30,17 +28,14 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
     display: none;
     width: 100%;
-    height: 1100px;
-    left: 200px;
+    height: 1110px;
     color: white;
-    font-size: large;
-    border-left: 25px;
-    border: 6px solid #020f58;
+    font-size: 15px;
+    border: 1px solid #020f58;
     border-radius: 20px;
-    background-color: grey;
+    background-color: rgba(28, 36, 104, 0.671);
 }
   </style>
 </head>
@@ -121,6 +116,19 @@
       <div id="exibir"></div>
     </div>
   </div>
+  <div id="rodape">
+    <footer>
+        <div class="footer">
+            <div class="row">
+                <a href="https://github.com/PedroHenrique1305/FreezeWay" target="_blank"><i
+                        class="fa fa-github"></i></a>
+            </div>
+            <div class="row">
+                FreezeWay Copyright © 2024 FreezeWay - Todos os direitos reservador || Feito por: Equipe 6 FreezeWay
+            </div>
+        </div>
+    </footer>
+</div>
 
   <script>
     var preco = 0;
