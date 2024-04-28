@@ -1,7 +1,7 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Mukta", sans-serif;
 }
 
 .menu{
@@ -10,7 +10,11 @@
     align-items: end;
     width: 100%;
     height: 70px;
+<<<<<<< HEAD
     background: rgba(148, 147, 147, 0.801);
+=======
+    background: rgba(1, 14, 202, 0.61);
+>>>>>>> 975bb5ccc935a1f1ed5900238a1cf9a9e234bfa4
     backdrop-filter: blur(19.5px);
     position: fixed;
 }
@@ -106,102 +110,8 @@
 .titulo{
     font-size: 20px;
     margin-right: 150px;
-    color: #06087e;
+    color: #eeeef3;
     margin-bottom: 25px;
-}
-
-.container{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.animated{
-    width: 550px;
-    margin-left: 190px;
-}
-
-.containerP{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    margin-right: 19    0px;
-}
-
-
-.p1{
-    margin-top: 50px;
-    font-size: 70px;
-    font-family: "Mukta", sans-serif;
-    color: #020f58;
-    margin-left: 30px;
-}
-
-.p2{
-    font-size: 170px;
-    font-family: "Mukta", sans-serif;
-    color: #020f58;
-    margin-top: -100px;
-    margin-left: 35px;
-}
-
-.pTexto{
-    font-size: 25px;
-    margin-left: 15px;
-}
-
-.h1SobreNos{
-    text-align: center;
-    margin-right: 58px;
-    font-size: 45px;
-    font-family: "Mukta", sans-serif;
-    margin-bottom: -75px;
-    color: #eeeeee;
-}
-
-#containerSobre{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    background: #1d295f;
-    height: 400px;
-    justify-content: space-evenly;
-}
-
-.textoSobrenos{
-    display: flex;
-    margin-top: 20px;
-    float: right;
-    font-size: 25px;
-    font-family: "Mukta", sans-serif;
-
-}
-
-.pSobreNos{
-    font-size: 20px;
-    margin-top:  -5px;
-    color: #eeeeee;
-    font-family: "Mukta", sans-serif;
-    margin-right: 750px;
-}
-
-.barraSobreNos{
-    margin-left: 630px;
-    background: #eeeeee;
-    height: 140px;
-    width: 5px;
-    color: #eeeeee;
-    margin-top: -120px;
-}
-
-.pSobreNos2{
-    font-size: 20px;
-    margin-left: 695px;
-    margin-top: -160px;
-    color: #eeeeee;
-    font-family: "Mukta", sans-serif;
 }
 
 #boddy{
@@ -212,7 +122,6 @@
 }
 
 .explicacao{
-    border-left: 25px;
     padding-top: 8px;
     width: 500px;
     font-size: large;
@@ -227,20 +136,15 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
-    
+    padding: 10px;
     display: flex;
-    width: 700px;
+    width: 500px;
     height: 400px;
-    
     color: white;
-    font-size: large;
-    
-    
-    border-left: 25px;
-    border: 6px solid #020f58;
+    font-size: 15px;
+    border: 1px solid #020f58;
     border-radius: 20px;
-    background-color: grey;
+    background-color: rgba(28, 36, 104, 0.671);
 
 }
 
@@ -255,6 +159,7 @@ button{
 }
 
 .boddy{
+    width: 1035px;
     width: 1050px;
     padding: 3% 15% 5% 2%; 
     display: flex;
@@ -273,18 +178,47 @@ button{
     display: flex;
     width: 100%;
     height: 400px;
-    
     color: white;
-    font-size: large;
-    
-    
-    border-left: 25px;
-    border: 6px solid #020f58;
+    font-size: 15px;
+    border: 1px solid #020f58;
     border-radius: 20px;
-    background-color: grey;
+    margin-left: 45px;
+    margin-right: 100px;
+    background-color: rgba(28, 36, 104, 0.671);
 }
 
 .mensagem{
     color: red;
+}
+
+.footer {
+    background: rgba(163, 161, 212, 0.274);
+    backdrop-filter: blur(19.5px);
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+}
+
+.footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: rgb(17, 11, 11);
+    font-size: 0.8em;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
 }
 
