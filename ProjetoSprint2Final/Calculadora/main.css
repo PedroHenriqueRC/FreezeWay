@@ -10,7 +10,11 @@
     align-items: end;
     width: 100%;
     height: 70px;
+<<<<<<< HEAD
+    background: rgba(148, 147, 147, 0.404);
+=======
     background: rgba(148, 147, 147, 0.801);
+>>>>>>> c137dd24bee349840a4bc350b34891a4727e27ce
     backdrop-filter: blur(19.5px);
     position: fixed;
 }
