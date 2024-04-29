@@ -264,11 +264,11 @@ p{
     color: #eeeeee;
     height: 340px;
     background: #eeeeee;
-    width: 2px;
+    width: 4px;
 }
 
 .footer {
-    background: rgba(163, 161, 212, 0.274);
+    background: rgba(163, 161, 212, 0.788);
     backdrop-filter: blur(19.5px);
     padding: 30px 0px;
     font-family: 'Play', sans-serif;
