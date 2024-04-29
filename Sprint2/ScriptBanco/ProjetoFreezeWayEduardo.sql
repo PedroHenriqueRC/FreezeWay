@@ -47,8 +47,9 @@ CONSTRAINT fkSensorCaminhao FOREIGN KEY(fkCaminhaoSensor)
 CREATE TABLE DadosMedidos (
 idDados int primary key auto_increment,
 temperatura varchar(10),
-dataDados date,
+dataDados datetime,
 fkSensor int,
 CONSTRAINT fkDadosSensor FOREIGN KEY(fkSensor)
 	REFERENCES Sensor(idSensor)
 );
+
