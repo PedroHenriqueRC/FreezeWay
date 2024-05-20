@@ -10,9 +10,8 @@
     align-items: center;
     min-height: 100vh;
     background-color: #ffffff;
-
+    overflow-y: hidden; 
 }  
-
 
 .navigation{
     position: absolute;
@@ -181,21 +180,29 @@
     border: 1px solid rgb(0, 0, 0);
     background-color: #ff5f2e;
   }
-  
+
+  #pai{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height:100vh;
+
+  }
+
   #Caixa_Pesquisa{
+     margin-bottom: 200px ; 
+    margin-left: 560px;
     padding-left: 1%;
     border: 2px solid gray;
     border-radius: 10px;
-    position: absolute;
-    top: 50px;
-    width: 375px;
-    left: 585px;
-    height: 40px;
-    flex-direction: row;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    width: 375px;
+    height: 40px;
 }
 .pesquisab{
 
@@ -206,24 +213,38 @@
 }
 
 table {
-  width: 60%;
+  width: 70%;
   margin: -10px;
   border-collapse: collapse;
-}
+} 
 th, td {
+   /* display: flex;  */
+  align-items: center;
+  flex-direction: column;
   border: 1px solid #000000;
   padding: 15px;
+
 }
 th {
   color: #000000;
   background-color: skyblue;
 }
+#tabela1{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 750px;
+  margin-left: 400px;
+  margin-bottom: 40%;
+}
 #tabela2{
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 20px;
-  bottom: 20%;
-  left: 330px;
   font-weight: bold;
+  width: 1500px;
+  margin-top: 0px;
 }
 
 a{
