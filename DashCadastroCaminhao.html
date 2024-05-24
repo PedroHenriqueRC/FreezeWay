@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TesteMenu.css">
+    
+    <title>FreezeWay | Cadastro de Caminhão</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+    <style>
+        .formCadastro .containercadastro h2 {
+            color: skyblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 35px;
+            margin-left: 100px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: verdana;
+        }
+
+        body {
+            background: #727272;
+            color: white;
+        }
+
+        #cadastro {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .containercadastro {
+            width: 80%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-items: center;
+            border: 2px solid skyblue;
+            border-radius: 35px;
+        }
+
+        .formCadastro {
+            padding-top:30px;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: auto;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .tituloCadastro {
+            margin-left: 160px;
+            font-size: 150px;
+            margin-top: 10px;
+        }
+
+
+        .formCadastro .containercadastro .pCadastro {
+            margin-top: 15px;
+            color: skyblue;
+        }
+
+        #listaEmpresas{
+            width: 370px;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            color: #000;
+            transition: 400ms;
+            border: 1px solid #949292;
+            padding: 10px;
+        }
+        
+        input {
+            width: 370px;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            color: #000;
+            transition: 400ms;
+            border: 1px solid #949292;
+            padding: 10px;
+        }
+
+        input:hover {
+            border: 1px solid skyblue;
+            font-size: 15px;
+        }
+
+        button {
+            width: 250px;
+            border-radius: 15px;
+            margin-left: 70px;
+            height: 40px;
+            background: skyblue;
+            color: #d4d4d4;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 400ms;
+            border: none;
+        }
+
+        button:hover {
+            background: rgb(0, 183, 255);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li class="list">
+                <span class="title"
+                    style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
+            </li>
+            <li>
+                <span class="title"
+                style="color: white; font-size: large; text-align: center;padding-left: 80px;">Olá,Fernando</span>
+            </li><br>
+            <li class="list">
+                <a href="DashPesquisa.html">
+                    <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                    <span class="title">Pesquisa</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon"><ion-icon name="thermometer-outline"></ion-icon></span>
+                    <span class="title">Temperatura Atual</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="DashTemSemanal.html">
+                    <span class="icon"> <ion-icon name="stats-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura Semanal</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="DashTempAnual.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                    <span class="title">Temperatura média Mensal</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="../site/index.html">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="formCadastro">
+        <div class="containercadastro">
+            <div id="cadastro">
+                <div id="title">
+                    <h2 class="tituloCadastro">Cadastrar Caminhão</h2>
+                </div>
+                <p class="pCadastro">Motorista</p>
+                <input type="text" id="Nomemotorista" placeholder="Insira o nome do Motorista Atual:">
+
+                <p class="pCadastro">Placa</p>
+                <input type="text" id="placaCaminhao" placeholder="Insira a placa do caminhão:">
+                
+                <p class="pCadastro">Selecione a Empresa:</p>
+                <select name="empresas" id="listaEmpresas">
+                    <option selected disabled>Selecione uma empresa</option>
+                    <option >teste</option>
+                    <option >teste</option>
+                </select>
+                <br><br>
+                <button>Cadastrar Caminhão</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
