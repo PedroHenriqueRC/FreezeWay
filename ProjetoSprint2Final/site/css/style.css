@@ -1,0 +1,40 @@
+h1 {
+    color: #1F2A44;
+}
+
+textarea[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+select,
+button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #1121a0;
+    color: #FFFFFF;
+    border: none;
+    transition: 400ms;
+    width: 150px;
+}
+
+button:hover {
+    background-color: #000d6e;
+}
+
+#resposta {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #D0D3D4;
+    border: 1px solid #63666A;
+    text-align: left;
+    display: none;
+}
