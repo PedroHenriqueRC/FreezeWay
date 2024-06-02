@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Document</title>
+    <style>
+        .formCadastro .containercadastro h2 {
+            color: #2c03d2;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 35px;
+            margin-left: 100px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: verdana;
+        }
+
+        body {
+            background: #d4d3d3;
+            color: white;
+        }
+
+        #cadastro {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .containercadastro {
+            width: 80%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            align-items: center;
+            border: 2px solid #2c03d2;
+            border-radius: 35px;
+        }
+
+        .formCadastro {
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: auto;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .tituloCadastro {
+            margin-left: 160px;
+            font-size: 150px;
+            margin-top: 10px;
+        }
+
+
+        .formCadastro .containercadastro .pCadastro {
+            margin-top: 15px;
+            color: #404be0;
+        }
+
+        #listaEmpresas{
+            width: 370px;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            color: #000;
+            transition: 400ms;
+            border: 1px solid #949292;
+            padding: 10px;
+        }
+        
+        input {
+            width: 370px;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            color: #000;
+            transition: 400ms;
+            border: 1px solid #949292;
+            padding: 10px;
+        }
+
+        input:hover {
+            border: 1px solid #000dc4;
+            font-size: 15px;
+        }
+
+        button {
+            width: 250px;
+            border-radius: 15px;
+            margin-left: 70px;
+            height: 40px;
+            background: #0c29c9;
+            color: #d4d4d4;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 400ms;
+            border: none;
+        }
+
+        button:hover {
+            background: #011366;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="formCadastro">
+        <div class="containercadastro">
+            <div id="cadastro">
+                <div id="title">
+                    <h2 class="tituloCadastro">Cadastrar Caminhão</h2>
+                </div>
+                <p class="pCadastro">Motorista</p>
+                <input type="text" id="Nomemotorista" placeholder="Insira o nome do Motorista Atual:">
+
+                <p class="pCadastro">Placa</p>
+                <input type="text" id="placaCaminhao" placeholder="Insira a placa do caminhão:">
+                
+                <p class="pCadastro">Selecione a Empresa:</p>
+                <select name="empresas" id="listaEmpresas">
+                    <option selected disabled>Selecione uma empresa</option>
+                    <option >teste</option>
+                    <option >teste</option>
+                </select>
+                <br><br>
+                <button>Cadastrar Caminhão</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

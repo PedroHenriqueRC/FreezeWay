@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: verdana;
+}
+
+body {
+    background: #d4d3d3;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    border-bottom: 2px solid #884788;
+    box-shadow: -20px -20px 100px #e405f8;
+    height: 100px;
+}
+
+.containerLogin {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagemLogin {
+    display: flex;
+    float: left;
+}
+
+.imgLogin {
+    height: 742px;
+    width: 640px;
+}
+
+.formLogin .containerLogin h2 {
+    margin-top: 90px;
+    color: #2c03d2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 45px;
+    margin-left: 140px;
+}
+
+.formLogin .containerLogin .loginP {
+    margin-top: 40px;
+    color: #404be0;
+}
+
+input {
+    width: 410px;
+    height: 40px;
+    border-radius: 15px;
+    background: transparent;
+    margin-top: 5px;
+    color: #000;
+    transition: 400ms;
+    border: 1px solid #949292;
+    padding: 10px;
+}
+
+input:hover {
+    border: 1px solid #000dc4;
+    font-size: 15px;
+}
+
+button {
+    width: 250px;
+    border-radius: 15px;
+    margin-left: 70px;
+    margin-top: 70px;
+    height: 40px;
+    background: #0c29c9;
+    color: #d4d4d4;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 400ms;
+    border: none;
+}
+
+button:hover {
+    background: #011366;
+}
+
+a {
+    color: #060b5f;
+    transition: 400ms;
+}
+
+a:hover {
+    color: rgb(84, 43, 231);
+
+}
+
+.pLogin {
+    margin-left: 78px;
+    color: #000dc4;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.esqueceuASenha {
+    margin-left: 78px;
+    color: #000dc4;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.tituloLogin {
+    margin-left: 160px;
+    font-size: 190px;
+}
+
+.mensagem {
+    width: 370px;
+    height: 70px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-size: bold;
+    border-radius: 15px;
+    display: none;
+    align-items: center;
+    position: absolute;
+    margin-top: 2%;
+    left: 75%;
+}
+
+.p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
