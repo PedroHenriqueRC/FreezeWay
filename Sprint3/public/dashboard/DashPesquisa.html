@@ -59,7 +59,7 @@
         </ul>
     </div>
     <div class="pai">
-        <div id="Caixa_Pesquisa">
+        <!-- <div id="Caixa_Pesquisa">
 
             <div class="pesquisab">
                 <ion-icon name="search-outline">
@@ -71,9 +71,26 @@
                     style="width: 320px;background-color:white;height: 36px;border-radius: 10px;border: none;padding-left: 1%; "
                     oninput="Pesquisa(this.values)">
             </div>
-        </div>
+        </div> -->
 
         <br><br>
+        <div id="body" align="center">
+            <h1>Orçamentos</h1>
+            <table id="orcamentos-table">
+                <thead>
+                    <tr>
+                        <th>identificador Caminhão</th>
+                        <th>Dia e Hora</th>
+                        <th>Temperatura Média</th>
+                        <th>Produto</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            </div>
+
+
+
         <!-- <thead>
             <table id="tabela1">
                 <tbody>
@@ -187,12 +204,14 @@
                     row.appendChild(cell);
                     tbody.appendChild(row);
                 } else {
-                    data.forEach(orcamento => {
+                    data.forEach(caminhao , dadosMedidos, Produto => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${caminhao.idOrcamento}</td>
-                            <td>${motorista.KmOrcado} km</td>
-                            <td>R$ ${placa.CustoCombustao}</td>
+                            <td>${caminhao.idCaminhao}</td>
+                            <td>${dadosMedidos.dataDados} km</td>
+                            <td>R$ ${dadosMedidos.temperatura}</td>
+                            <td>R$ ${Produto.nomeProduto}</td>
+                            
                         `;
                         tbody.appendChild(row);
                     });

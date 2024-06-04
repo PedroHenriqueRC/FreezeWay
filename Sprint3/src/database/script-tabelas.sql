@@ -6,54 +6,65 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+CREATE TABLE Empresa(
+idEmpresa int primary key auto_increment,
+nome varchar(45),
+email varchar(250),
+senha varchar(20),
+cpnj Char(14)
+);
+ 
 
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
+CREATE TABLE Usuario (
+idUsuario int primary key auto_increment,
+email varchar(256),
+senhaUsuario varchar(40),
+fkEmpresa int,
+CONSTRAINT fkUsuarioEmpresa FOREIGN KEY(fkEmpresa)
+	REFERENCES Empresa(idEmpresa)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE Caminhao (
+idCaminhao int primary key auto_increment,
+motorista varchar(45),
+placa varchar(15),
+fkEmpresaCaminhao int,
+CONSTRAINT fkCaminhaoEmpresa FOREIGN KEY(fkEmpresaCaminhao)
+	REFERENCES Empresa(idEmpresa)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE Produto (
+idProduto int primary key auto_increment,
+nomeProduto varchar(45),
+quantidadeProduto int,	
+fkCaminhao int,
+fkEmpresaProduto int,
+CONSTRAINT fkProdutoCaminhao FOREIGN KEY(fkCaminhao)
+	REFERENCES Caminhao(idCaminhao),
+CONSTRAINT fkEmpresaProduto FOREIGN KEY(fkEmpresaProduto)
+	REFERENCES Empresa(idEmpresa)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE Sensor (
+idSensor int,
+fkCaminhaoSensor int,
+CONSTRAINT pkComposta PRIMARY KEY (idSensor,fkCaminhaoSensor),
+nomeSensor varchar(15),
+CONSTRAINT fkSensorCaminhao FOREIGN KEY(fkCaminhaoSensor)
+	REFERENCES Caminhao(idCaminhao)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE DadosMedidos (
+idDados int primary key auto_increment,
+temperatura varchar(10),
+dataDados date,
+fkSensor int,
+fkProduto int,
+fkEmpresaDados int,
+CONSTRAINT fkDadosSensor FOREIGN KEY(fkSensor)
+	REFERENCES Sensor(idSensor),
+CONSTRAINT fkProdutoDados FOREIGN KEY (fkProduto)
+	REFERENCES Produto (idProduto),
+    CONSTRAINT fkEmpresaDados FOREIGN KEY(fkEmpresaDados)
+	REFERENCES Empresa(idEmpresa)
 );
-
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);

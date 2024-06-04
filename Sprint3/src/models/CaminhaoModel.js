@@ -15,10 +15,10 @@ function cadastrarCaminhao(motorista, placa, idUsuario) {
 function buscarCaminhoes(idEmpresa) {
     console.log("ACESSEI O MEDIDA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n buscarCaminhoes(): ")
     var instrucaoSql = `Select 
-    Caminhao.idCaminhao as 'idCaminhão' , 
-    DadosMedidos.dataDados as "Data dos dados",
-    DadosMedidos.temperatura as "Temperatura",
-    Produto.nomeProduto as "Nome do produto"
+    Caminhao.idCaminhao, 
+    DadosMedidos.dataDados,
+    DadosMedidos.temperatura,
+    Produto.nomeProduto
     from Caminhao
     join Produto
     on idCaminhao = fkCaminhao
