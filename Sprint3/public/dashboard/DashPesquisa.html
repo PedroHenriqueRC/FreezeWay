@@ -74,7 +74,7 @@
         </div>
 
         <br><br>
-        <thead>
+        <!-- <thead>
             <table id="tabela1">
                 <tbody>
                     <tr style="color: white;">
@@ -130,7 +130,7 @@
                     </tr>
                 </tbody>
         </thead>
-        </table>
+        </table> -->
 </body>
 
 </div>
@@ -154,3 +154,53 @@
         alert("A função de Pesquisar ainda não está disponível nessa versão")
     }
 </script>
+
+
+​
+<script>
+​
+ var idEmpresa = sessionStorage.ID_USUARIO;
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            fetch(`/Caminhao/buscarCaminhoes/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tbody = document.querySelector('#orcamentos-table tbody');
+                tbody.innerHTML = ''; // Clear previous content
+
+                if (data.length === 0) {
+                    const row = document.createElement('tr');
+                    const cell = document.createElement('td');
+                    cell.colSpan = 5;
+                    cell.textContent = 'Nenhum orçamento encontrado.';
+                    row.appendChild(cell);
+                    tbody.appendChild(row);
+                } else {
+                    data.forEach(orcamento => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${caminhao.idOrcamento}</td>
+                            <td>${motorista.KmOrcado} km</td>
+                            <td>R$ ${placa.CustoCombustao}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Houve um erro ao capturar os dados do Orcamento!', error);
+            });
+        });
+    
+    </script>
