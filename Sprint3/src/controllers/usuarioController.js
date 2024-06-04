@@ -2,16 +2,16 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var email_empresaVar = req.body.emailServer;
+    var primeira_senhaVar = req.body.senhaServer;
 
-    if (email == undefined) {
+    if (email_empresaVar == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if (primeira_senhaVar == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        usuarioModel.autenticar(email_empresaVar, primeira_senhaVar)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -19,21 +19,12 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        res.json({
+                            id:resultadoAutenticar[0].id,
+                            nome:resultadoAutenticar[0].nome,
+                            email:resultadoAutenticar[0].email
+                        })
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -53,24 +44,24 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var empresaId = req.body.empresaServer;
+    var nome_empresaVar = req.body.nome_empresaServer;
+    var cnpj_empresaVar = req.body.cnpj_empresaServer;
+    var email_empresaVar = req.body.email_empresaServer;
+    var primeira_senhaVar = req.body.primeira_senhaServer;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    if (nome_empresaVar == undefined) {
+        res.status(400).send("Nome da empresa está undefined!");
+    } else if (cnpj_empresaVar == undefined) {
+        res.status(400).send("CNPJ da empresa está undefined!");
+    } else if (email_empresaVar == undefined) {
+        res.status(400).send("Email da empresa está undefined!");
+    } else if (primeira_senhaVar == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (empresaId == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, empresaId)
+        usuarioModel.cadastrar(nome_empresaVar, cnpj_empresaVar, email_empresaVar, primeira_senhaVar)
             .then(
                 function (resultado) {
                     res.json(resultado);

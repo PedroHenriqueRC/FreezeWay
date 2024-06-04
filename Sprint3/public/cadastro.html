@@ -19,19 +19,26 @@
                 <div id="cadastro">
                     <h2 class="tituloCadastro">Cadastre-se</h2>
                     <p class="pCadastro">Empresa</p><br>
+
                     <input type="text" id="nome_empresa" required="required"
                         placeholder="Informe o nome da sua empresa">
+
                     <p class="pCadastro">CNPJ da Empresa</p><br>
                     <input type="text" id="cnpj_empresa" required="required"
                         placeholder="Informe o CNPJ da empresa sem traços ou pontos">
+
                     <p class="pCadastro">E-mail</p><br>
                     <input type="text" id="email_empresa" required="@" placeholder="Informe o email da empresa">
+
                     <p class="pCadastro">Senha</p><br>
                     <input type="password" id="primeira_senha" required="required" placeholder="Digite sua senha">
+
                     <p class="pCadastro">Confirme a Senha</p><br>
                     <input type="password" id="segunda_senha" required="required"
                         placeholder="Digite sua senha novamente">
+
                     <br><br>
+
                     <button onclick="cadastrar()">Cadastrar</button><br><br><br>
                     <p class="cadastroP">Já é cadastrado? <a href="login.html">login</a></p>
                 </div>
@@ -53,87 +60,73 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
+    var nome_empresaVar = nome_empresa.value;
+    var cnpj_empresaVar = cnpj_empresa.value;
+    var email_empresaVar = email_empresa.value;
+    var primeira_senhaVar = primeira_senha.value;
+    var segunda_senhaVar = segunda_senha.value;
+    var emailsemarroba = email_empresaVar.indexOf("@");
+    var emailsemponto = email_empresaVar.indexOf(".")
     if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      empresaVar == ""
+      nome_empresaVar == "" ||
+      cnpj_empresaVar == "" ||
+      email_empresaVar == "" ||
+      primeira_senhaVar == "" ||
+      segunda_senhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
+      alert(`(Mensagem de erro para todos os campos em branco)`);
+      return;
+    } 
+    if(nome_empresaVar.length <= 1 ){
+      alert("Nome inserido é inválido, Insira um nome com mais de 1 carácter");
     }
+    else if (emailsemarroba < 0) {
+      alert("Dados inválidos, email deve conter'@'");
+    }
+    else if( emailsemponto < 0){
+      alert('Dados inseridos indevidamente, Insira novamente seu email com ".com"');
+    }
+    else if(primeira_senhaVar.length <= 6){
+      alert("SENHA FRACA! \n Insira novamente Sua senha, com mais de 6 digitos");
+    }
+    else if(primeira_senhaVar != segunda_senhaVar ){
+      alert("Dados inválidos, senhas não iguais");
+    }
+    else{
 
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        empresaServer: empresaVar
+        nome_empresaServer: nome_empresaVar,
+        cnpj_empresaServer: cnpj_empresaVar,
+        email_empresaServer: email_empresaVar,
+        primeira_senhaServer: primeira_senhaVar,
+        segunda_senhaServer: segunda_senhaVar
       }),
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
+    .then(function (resposta) {
+      if (resposta.ok) {
+        return resposta.json(); // Parse the JSON from the response
+      } else {
+        throw new Error("Houve um erro ao tentar realizar o cadastro!");
+      }
+    })
+    .then(function (data) {
+      // Salvar no LocalStorage o id do usuario
+      localStorage.setItem("idUsuario", JSON.stringify(data.insertId));
+      
+      alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`);
+      window.location = "login.html";
+    })
+    .catch(function (error) {
+      alert(error.message);
+      console.log(`#ERRO: ${error}`);
+    });
 
     return false;
   }
-
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+}
 </script>
