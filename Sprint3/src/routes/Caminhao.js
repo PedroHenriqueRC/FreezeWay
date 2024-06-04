@@ -8,4 +8,8 @@ router.post("/cadastrarCaminhao", function (req, res) {
     CaminhaoController.cadastrarCaminhao(req, res);
 });
 
+router.get("/buscarCaminhoes/:idEmpresa", function (req, res) {
+    CaminhaoController.buscarCaminhoes(req, res);
+});
+
 module.exports = router;
