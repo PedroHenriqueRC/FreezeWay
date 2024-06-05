@@ -16,7 +16,7 @@ CREATE TABLE caminhao (
     motorista VARCHAR(45),
     placaCaminhao VARCHAR(7),
     nomeProduto VARCHAR(45),
-    qtdProduto VARCHAR(45),
+    qtdProduto int,
     fkEmpresa INT,
     CONSTRAINT fkCaminhaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id)
 );
@@ -45,8 +45,8 @@ INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('Pedro', '12345678901234'
 INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 1);
 INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (5,4,'-16.50', 2);
 
-SELECT*FROM produto;
-SELECT*FROM caminhao;
+
+SELECT*from dadosmedidos;
 
 SELECT
     caminhao.idCaminhao,        
@@ -58,7 +58,7 @@ FROM caminhao
 JOIN dadosMedidos
     ON dadosMedidos.fkCaminhao = caminhao.idCaminhao
 INNER JOIN empresa
-    ON caminhao.fkEmpresa = empresa.id where id=2
+    ON caminhao.fkEmpresa = empresa.id where caminhao.fkEmpresa=1
 GROUP BY 
     caminhao.fkEmpresa, 
     caminhao.idCaminhao, 
@@ -67,6 +67,18 @@ GROUP BY
     dadosMedidos.temperatura;
     
 show tables;
+
+INSERT INTO Empresa Values
+();
+
+INSERT INTO Caminhao VALUES
+(DEFAULT,"Pedro",'BX01211','Picanha',10,1);
+
+select*from empresa;
+select*from caminhao;
+select*from sensor;
+select*from dadosmedidos;
+
 
 
 
