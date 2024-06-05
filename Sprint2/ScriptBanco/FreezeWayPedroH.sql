@@ -72,6 +72,9 @@ GROUP BY
     dadosMedidos.dtDadosMedidas,
     produto.nomeProduto, 
     dadosMedidos.temperatura;
+    
+show tables;
 
 
-show databases;
+
+

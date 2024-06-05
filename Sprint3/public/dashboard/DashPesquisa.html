@@ -75,9 +75,11 @@
                 <tbody></tbody>
             </table>
         </div>
-
-
-    <script>
+        
+        
+        <script>
+        var idUsuario = sessionStorage.ID_USUARIO;
+        
         function formatDate(dateString) {
             const options = {
                 year: 'numeric', month: 'numeric', day: 'numeric',
@@ -88,7 +90,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            var idUsuario = sessionStorage.ID_USUARIO;
             b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
             fetch(`/Caminhao/buscarCaminhoes/${idUsuario}`, {
@@ -112,7 +113,7 @@
                         const row = document.createElement('tr');
                         const cell = document.createElement('td');
                         cell.colSpan = 4;
-                        cell.textContent = 'Nenhum orçamento encontrado.';
+                        cell.textContent = 'Nenhum Registro de Caminhão encontrado.';
                         row.appendChild(cell);
                         tbody.appendChild(row);
                     } else {

@@ -182,6 +182,7 @@
 
 <script>
                 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+                var idUsuarioVar = sessionStorage.ID_USUARIO;
 
     function cadastrarCaminhao() {
         
@@ -190,7 +191,6 @@
         // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
         var placaVar = input_Placa.value;
-        var idUsuarioVar = sessionStorage.ID_USUARIO;
     
     if ( motoristaVar == "" || placaVar == ""  ) {
     alert("Mensagem de erro para todos os campos em branco");
