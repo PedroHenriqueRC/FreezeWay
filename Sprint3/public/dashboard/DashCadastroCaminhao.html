@@ -9,8 +9,6 @@
     <title>FreezeWay | Cadastro de Caminhão</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet"
@@ -183,6 +181,10 @@
 
                 <p class="pCadastro">Placa</p>
                 <input type="text" id="input_Placa" placeholder="Insira a placa do caminhão:">
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 21cff37b6325b495b8882b3095e862e31578b07a
                 <br><br>
                 <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
             </div>
@@ -193,14 +195,15 @@
 </html>
 
 <script>
-function cadastrarCaminhao() {
-   
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var motoristaVar = input_Motorista.value;
-    var placaVar = input_Placa.value;
-    var idUsuarioVar = sessionStorage.ID_USUARIO;
+    
+    function cadastrarCaminhao() {
+        
+        
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var motoristaVar = input_Motorista.value;
+        var placaVar = input_Placa.value;
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
     
     if ( motoristaVar == "" || placaVar == ""  ) {
     alert("Mensagem de erro para todos os campos em branco");

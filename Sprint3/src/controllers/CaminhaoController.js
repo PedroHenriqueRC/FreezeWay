@@ -1,6 +1,9 @@
 var CaminhaoModel = require("../models/CaminhaoModel");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21cff37b6325b495b8882b3095e862e31578b07a
 function cadastrarCaminhao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var motorista = req.body.motoristaServer;
