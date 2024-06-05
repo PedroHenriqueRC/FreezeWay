@@ -172,6 +172,9 @@
                 <p class="pCadastro">Placa</p>
                 <input type="text" id="input_Placa" placeholder="Insira a placa do caminhão:">
                 <br><br>
+                <p class="pCadastro">Produto</p>
+                <input type="text" id="input_Produto" placeholder="Insira qual produto irá transportar:">
+                <br><br>
                 <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
             </div>
         </div>
@@ -190,6 +193,7 @@
         // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
         var placaVar = input_Placa.value;
+        var produtoVar = input_Produto;
         var idUsuarioVar = sessionStorage.ID_USUARIO;
     
     if ( motoristaVar == "" || placaVar == ""  ) {
@@ -211,6 +215,7 @@
 
         motoristaServer: motoristaVar,
         placaServer: placaVar,
+        produtoServer: produtoVar,
         idUsuarioServer: idUsuarioVar      
       }),
     })

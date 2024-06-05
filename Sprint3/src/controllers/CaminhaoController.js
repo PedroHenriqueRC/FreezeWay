@@ -4,6 +4,7 @@ function cadastrarCaminhao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var motorista = req.body.motoristaServer;
     var placa = req.body.placaServer;
+    var produto = req.body.produtoServer;
     var idUsuario = req.body.idUsuarioServer;
     
     // Faça as validações dos valores
@@ -11,13 +12,16 @@ function cadastrarCaminhao(req, res) {
         res.status(400).send("Seu nome está undefined!");
     } else if (placa == undefined) {
         res.status(400).send("Seu email está undefined!");
+    } else if (produto == undefined) {
+        res.status(400).send("Seu produto está undefined!");
     } else if (idUsuario == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } 
-     else {
+        res.status(400).send("Sua senha está undefined!");    
+    } else {
+
+    }
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        CaminhaoModel.cadastrarCaminhao(motorista, placa , idUsuario)
+        CaminhaoModel.cadastrarCaminhao(motorista, placa, produto, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -33,7 +37,6 @@ function cadastrarCaminhao(req, res) {
                 }
             );
     }
-}
 
 function buscarCaminhoes(req, res) {
     var idUsuario = req.params.idUsuario;
