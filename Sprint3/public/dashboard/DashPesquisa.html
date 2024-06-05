@@ -67,6 +67,7 @@
                 <thead>
                     <tr>
                         <th>Identificador Caminhão</th>
+                        <th>Nome Motorista</th>
                         <th>Dia e Hora</th>
                         <th>Temperatura Média</th>
                         <th>Produto</th>
@@ -121,6 +122,7 @@
                             const row = document.createElement('tr');
                             row.innerHTML = `
                                 <td>${item.idCaminhao || item.caminhao?.idCaminhao}</td>
+                                <td>${item.motorista || item.motorista?.motorista}</td>
                                 <td>${formatDate(item.dtDadosMedidas || item.dadosMedidos?.dtDadosMedidas)}</td>
                                 <td>${item.temperatura || item.dadosMedidos?.temperatura}</td>
                                 <td>${item.nomeProduto || item.produto?.nomeProduto}</td>

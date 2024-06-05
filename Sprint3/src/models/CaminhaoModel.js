@@ -17,21 +17,20 @@ function buscarCaminhoes(idUsuario) {
     var instrucaoSql = `
     SELECT
     caminhao.idCaminhao,        
+    caminhao.motorista,
     dadosMedidos.dtDadosMedidas,
     dadosMedidos.temperatura,
-    produto.nomeProduto
+    caminhao.nomeProduto
 FROM caminhao
-JOIN produto
-    ON caminhao.idCaminhao = produto.fkCaminhao
-INNER JOIN dadosMedidos
-    ON dadosMedidos.fkProduto = produto.idProduto
+JOIN dadosMedidos
+    ON dadosMedidos.fkCaminhao = caminhao.idCaminhao
 INNER JOIN empresa
     ON caminhao.fkEmpresa = empresa.id where id=${idUsuario}
 GROUP BY 
     caminhao.fkEmpresa, 
     caminhao.idCaminhao, 
     dadosMedidos.dtDadosMedidas,
-    produto.nomeProduto, 
+    caminhao.nomeProduto, 
     dadosMedidos.temperatura;
    `;
 
