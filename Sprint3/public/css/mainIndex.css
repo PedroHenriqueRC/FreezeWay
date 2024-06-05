@@ -178,11 +178,14 @@ body {
 .h1Servico{
     color: #250364;
     font-size: 25px;
+    padding-top: 10px;
 }
 
 .pServicos{
     color: #eeeeee;
     text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .btnServico{
@@ -258,6 +261,7 @@ img{
 
 p{
     color: #eeeeee;
+    text-align: center;
 }
 
 .barraSobre{
@@ -315,7 +319,7 @@ p{
 }
 
 .tituloEquipe{
-    margin-left: 610px;
+    margin-left: 665px;
     font-family: "Mukta", sans-serif;
     margin-bottom: 50px;
     font-size: 45px;
@@ -362,7 +366,7 @@ p{
 }
 
 .funcaoEquipe{
-    margin-left: 75px;
+    margin-left: -15px;
     font-size: 15px;
     color: #777777;
 }
