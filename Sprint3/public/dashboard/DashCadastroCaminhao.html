@@ -172,6 +172,9 @@
                 <p class="pCadastro">Placa</p>
                 <input type="text" id="input_Placa" placeholder="Insira a placa do caminhão:">
                 <br><br>
+                <p class="pCadastro">Produto</p>
+                <input type="text" id="input_Produto" placeholder="Insira qual produto irá transportar:">
+                <br><br>
                 <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
             </div>
         </div>
@@ -191,6 +194,11 @@
         // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
         var placaVar = input_Placa.value;
+<<<<<<< HEAD
+=======
+        var produtoVar = input_Produto;
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
+>>>>>>> 790b231b02e47d9c8c56201e1739834b71910565
     
     if ( motoristaVar == "" || placaVar == ""  ) {
     alert("Mensagem de erro para todos os campos em branco");
@@ -211,6 +219,7 @@
 
         motoristaServer: motoristaVar,
         placaServer: placaVar,
+        produtoServer: produtoVar,
         idUsuarioServer: idUsuarioVar      
       }),
     })
