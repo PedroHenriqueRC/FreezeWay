@@ -1,3 +1,5 @@
+var CaminhaoModel = require("../models/CaminhaoModel");
+
 function cadastrarCaminhao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var motorista = req.body.motoristaServer;
@@ -34,9 +36,9 @@ function cadastrarCaminhao(req, res) {
 }
 
 function buscarCaminhoes(req, res) {
-    var idEmpresa = req.params.idEmpresa;
+    var idUsuario = req.params.idUsuario;
 
-    CaminhaoModel.buscarCaminhoes(idEmpresa)
+    CaminhaoModel.buscarCaminhoes(idUsuario)
         .then(resultadoAutenticar => {
             console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
             console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);

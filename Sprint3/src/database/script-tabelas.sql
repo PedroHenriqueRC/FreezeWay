@@ -1,70 +1,77 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE freezeway;
+USE freezeway;
 
-/*
-comandos para mysql server
-*/
-
-CREATE TABLE Empresa(
-idEmpresa int primary key auto_increment,
-nome varchar(45),
-email varchar(250),
-senha varchar(20),
-cpnj Char(14)
-);
- 
-
-CREATE TABLE Usuario (
-idUsuario int primary key auto_increment,
-email varchar(256),
-senhaUsuario varchar(40),
-fkEmpresa int,
-CONSTRAINT fkUsuarioEmpresa FOREIGN KEY(fkEmpresa)
-	REFERENCES Empresa(idEmpresa)
+-- Criando a tabela empresa
+CREATE TABLE empresa (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    cnpj CHAR(14),
+    email VARCHAR(256),
+    senha VARCHAR(20)
 );
 
-CREATE TABLE Caminhao (
-idCaminhao int primary key auto_increment,
-motorista varchar(45),
-placa varchar(15),
-fkEmpresaCaminhao int,
-CONSTRAINT fkCaminhaoEmpresa FOREIGN KEY(fkEmpresaCaminhao)
-	REFERENCES Empresa(idEmpresa)
+-- Criando a tabela caminhao
+CREATE TABLE caminhao (
+    idCaminhao INT AUTO_INCREMENT PRIMARY KEY,
+    motorista VARCHAR(45),
+    placaCaminhao VARCHAR(7),
+    fkEmpresa INT,
+    CONSTRAINT fkCaminhaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id)
 );
 
-CREATE TABLE Produto (
-idProduto int primary key auto_increment,
-nomeProduto varchar(45),
-quantidadeProduto int,	
-fkCaminhao int,
-fkEmpresaProduto int,
-CONSTRAINT fkProdutoCaminhao FOREIGN KEY(fkCaminhao)
-	REFERENCES Caminhao(idCaminhao),
-CONSTRAINT fkEmpresaProduto FOREIGN KEY(fkEmpresaProduto)
-	REFERENCES Empresa(idEmpresa)
+-- Criando a tabela produto
+CREATE TABLE produto (
+    idProduto INT AUTO_INCREMENT PRIMARY KEY,
+    nomeProduto VARCHAR(45),
+    qtdProduto VARCHAR(45),
+    fkCaminhao INT,
+    CONSTRAINT fkProdutoCaminhao FOREIGN KEY (fkCaminhao) REFERENCES caminhao(idCaminhao)
 );
 
-CREATE TABLE Sensor (
-idSensor int,
-fkCaminhaoSensor int,
-CONSTRAINT pkComposta PRIMARY KEY (idSensor,fkCaminhaoSensor),
-nomeSensor varchar(15),
-CONSTRAINT fkSensorCaminhao FOREIGN KEY(fkCaminhaoSensor)
-	REFERENCES Caminhao(idCaminhao)
+-- Criando a tabela sensor
+CREATE TABLE sensor (
+    idSensor INT AUTO_INCREMENT PRIMARY KEY,
+    nomeSensor VARCHAR(4),
+    fkCaminhao INT,
+    CONSTRAINT fkCaminhaoSensor FOREIGN KEY (fkCaminhao) REFERENCES caminhao(idCaminhao)
 );
 
-CREATE TABLE DadosMedidos (
-idDados int primary key auto_increment,
-temperatura varchar(10),
-dataDados date,
-fkSensor int,
-fkProduto int,
-fkEmpresaDados int,
-CONSTRAINT fkDadosSensor FOREIGN KEY(fkSensor)
-	REFERENCES Sensor(idSensor),
-CONSTRAINT fkProdutoDados FOREIGN KEY (fkProduto)
-	REFERENCES Produto (idProduto),
-    CONSTRAINT fkEmpresaDados FOREIGN KEY(fkEmpresaDados)
-	REFERENCES Empresa(idEmpresa)
+-- Criando a tabela dadosMedidos
+CREATE TABLE dadosMedidos (
+    idDadosMedidos INT,
+    fkSensor INT,
+    temperatura VARCHAR(6),
+    dtDadosMedidas DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fkProduto INT,
+    CONSTRAINT pkSensorDados PRIMARY KEY (fkSensor, idDadosMedidos),
+    CONSTRAINT fkDadosProduto FOREIGN KEY (fkProduto) REFERENCES produto(idProduto)
 );
+
+INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('Pedro', '12345678901234', 'pedrohenrique@gmail.com', '123456789');
+INSERT INTO produto (nomeProduto, qtdProduto, fkCaminhao) VALUES ('picanha', '50', 1);
+INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 1);
+INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (5,4,'-16.50', 2);
+
+SELECT*FROM produto;
+
+SELECT
+    caminhao.idCaminhao,        
+    dadosMedidos.dtDadosMedidas,
+    dadosMedidos.temperatura,
+    produto.nomeProduto
+FROM caminhao
+JOIN produto
+    ON caminhao.idCaminhao = produto.fkCaminhao
+INNER JOIN dadosMedidos
+    ON dadosMedidos.fkProduto = produto.idProduto
+INNER JOIN empresa
+    ON caminhao.fkEmpresa = empresa.id where id=1
+GROUP BY 
+    caminhao.fkEmpresa, 
+    caminhao.idCaminhao, 
+    dadosMedidos.dtDadosMedidas,
+    produto.nomeProduto, 
+    dadosMedidos.temperatura;
+
+
+show databases;

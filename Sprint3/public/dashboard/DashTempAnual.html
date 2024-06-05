@@ -17,7 +17,9 @@
                 <span class="title" style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
             </li>
             <li>
-                <span class="title" style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;Fernando</span>
+                <span class="title"
+                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
+                    id="b_usuario">Usuário</span>!</span>
             </li><br>
             <li class="list">
                 <a href="DashPesquisa.html">
@@ -40,7 +42,7 @@
             <li class="list active">
              <a href="DashTempAnual.html">
                     <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
-                    <span class="title">Temperatura média Mensal</span>
+                    <span class="title">Temperatura Mensal</span>
                 </a>
             </li>
             <li class="list">
@@ -71,6 +73,8 @@
 
 
     <script>
+                    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
         const list = document.querySelectorAll('.list');
         function activeLink(){
             list.forEach((item) =>
@@ -79,9 +83,7 @@
         }
         list.forEach((item) =>
         item.addEventListener('click', activeLink));
-    </script> 
-
-    <script>
+   
         const labels2 = [
             'Janeiro',
             'Fevereiro',
@@ -115,10 +117,7 @@
 
             }
         };
-    </script>
 
-    <script>
-        
         const myChart2 = new Chart(
             document.getElementById("myChart2"),
             config2

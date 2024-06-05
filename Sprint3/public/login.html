@@ -74,22 +74,31 @@
                 console.log("ESTOU NO THEN DO entrar()!")
 
                 if (resposta.ok) {
-                    console.log(resposta);
+                console.log(resposta);
 
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id
 
-                        setTimeout(function () {
-                            alert("Login Realizado com sucesso! \n Redirecionando para a DashBoard ")
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
 
-                            window.location = "./dashboard/DashPesquisa.html";
-                        }, 1000); // apenas para exibir o loading
+                    // if (json[0].nome == 'ADM') {
+                    //     window.location = "./dashboard/dashboardADM.html";
+                    // }
+                    // else {
+                    //     window.location = "./dashboard/dashboard.html";
+                    // }
 
-                    });
+                    setTimeout(function () {
+                        alert("Login Realizado com sucesso! \n Redirecionando para a DashBoard ")
+                        
+                        window.location = "./dashboard/DashPesquisa.html";
+                    }, 1000); // apenas para exibir o loading
+                    
+                });                        
+                
 
                 } else {
 
