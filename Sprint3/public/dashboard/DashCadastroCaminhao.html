@@ -30,7 +30,7 @@
 
         body {
             background:white;
-            color: white;
+            color: rgb(202, 202, 202);
         }
 
         #cadastro {
@@ -62,8 +62,6 @@
         }
 
         .tituloCadastro {
-            margin-left: 160px;
-            font-size: 150px;
             margin-top: 10px;
         }
 
@@ -71,19 +69,10 @@
         .formCadastro .containercadastro .pCadastro {
             margin-top: 15px;
             color: skyblue;
+            font-size: larger;
+            font-weight: bold;
         }
 
-        #listaEmpresas{
-            width: 370px;
-            height: 40px;
-            border-radius: 15px;
-            background: transparent;
-            color: #000;
-            transition: 400ms;
-            border: 1px solid #949292;
-            padding: 10px;
-        }
-        
         input {
             width: 370px;
             height: 40px;
@@ -91,12 +80,12 @@
             background: transparent;
             color: #000;
             transition: 400ms;
-            border: 1px solid #949292;
+            border: 2px solid skyblue;
             padding: 10px;
         }
 
         input:hover {
-            border: 1px solid skyblue;
+            border: 2px solid skyblue;
             font-size: 15px;
         }
 
@@ -106,7 +95,7 @@
             margin-left: 70px;
             height: 40px;
             background: skyblue;
-            color: #d4d4d4;
+            color: #424244;
             font-size: 20px;
             cursor: pointer;
             transition: 400ms;
@@ -129,7 +118,8 @@
             </li>
             <li>
                 <span class="title"
-                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;Fernando</span>
+                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
+                    id="b_usuario">Usuário</span>!</span>
             </li><br>
             <li class="list">
                 <a href="DashPesquisa.html">
@@ -152,7 +142,7 @@
             <li class="list">
                 <a href="DashTempAnual.html">
                     <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
-                    <span class="title">Temperatura média Mensal</span>
+                    <span class="title">Temperatura Mensal</span>
                 </a>
             </li>
             <li class="list active">
@@ -181,10 +171,6 @@
 
                 <p class="pCadastro">Placa</p>
                 <input type="text" id="input_Placa" placeholder="Insira a placa do caminhão:">
-<<<<<<< HEAD
-=======
-    
->>>>>>> 21cff37b6325b495b8882b3095e862e31578b07a
                 <br><br>
                 <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
             </div>
@@ -195,7 +181,8 @@
 </html>
 
 <script>
-    
+                b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
     function cadastrarCaminhao() {
         
         
@@ -209,6 +196,10 @@
     alert("Mensagem de erro para todos os campos em branco");
 
       return false;
+     }else if(motoristaVar.length < 3){
+        alert("Dados inseridos incorretamente, Por Favor, Corrija Seu Nome.")
+    } else if(placaVar.length > 7 || placaVar.length < 7){
+        alert("Dados inseridos incorretamente, Por Favor, Corrija Sua Placa.\n Ela Deve Conter exatamente 7 Digitos")
      }else {
 
     fetch("/Caminhao/cadastrarCaminhao", {

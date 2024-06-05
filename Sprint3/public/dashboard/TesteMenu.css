@@ -88,7 +88,6 @@
     right: 0;
     width: 30px;
     height: 30px;
-    background:#424244;
     border-radius: 50%;
     box-shadow: 15px 15px 0 skyblue;
 }
@@ -99,7 +98,6 @@
    right: 0;
    width: 30px;
    height: 30px;
-   background:#424244;
    border-radius: 50%;
    box-shadow: 15px -15px 0 skyblue;
 }
