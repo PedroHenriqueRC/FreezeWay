@@ -183,15 +183,8 @@
 
                 <p class="pCadastro">Placa</p>
                 <input type="text" id="input_Placa" placeholder="Insira a placa do caminhão:">
-                
-                <p class="pCadastro">Selecione a Empresa:</p>
-                <select name="empresas" id="listaEmpresas">
-                    <option selected disabled>Selecione uma empresa</option>
-                    <option >teste</option>
-                    <option >teste</option>
-                </select>
                 <br><br>
-                <button>Cadastrar Caminhão</button>
+                <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
             </div>
         </div>
     </div>
@@ -210,25 +203,18 @@ function cadastrarCaminhao() {
     var idUsuarioVar = sessionStorage.ID_USUARIO;
     
     if ( motoristaVar == "" || placaVar == ""  ) {
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-    //     "(Mensagem de erro para todos os campos em branco)";
+    alert("Mensagem de erro para todos os campos em branco");
 
-    //   finalizarAguardar();
       return false;
-     }// else {
-    //   setInterval(sumirMensagem, 5000);
-    // }
+     }else {
 
-    // Enviando o valor da nova input
     fetch("/Caminhao/cadastrarCaminhao", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+
         motoristaServer: motoristaVar,
         placaServer: placaVar,
         idUsuarioServer: idUsuarioVar      
@@ -238,17 +224,9 @@ function cadastrarCaminhao() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-        //   cardErro.style.display = "block";
+            alert("Caminhão Cadastrado com sucesso!")
+            window.location = "./DashPesquisa.html";
 
-        //   mensagem_erro.innerHTML =
-        //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-        //   setTimeout(() => {
-        //     window.location = "login.html";
-        //   }, "2000");
-
-        //   limparFormulario();
-        //   finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -260,6 +238,5 @@ function cadastrarCaminhao() {
 
     return false;
   }
-
- 
+}
 </script>
