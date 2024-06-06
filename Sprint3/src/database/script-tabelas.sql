@@ -15,17 +15,10 @@ CREATE TABLE caminhao (
     idCaminhao INT AUTO_INCREMENT PRIMARY KEY,
     motorista VARCHAR(45),
     placaCaminhao VARCHAR(7),
+    nomeProduto VARCHAR(45),
+    qtdProduto int,
     fkEmpresa INT,
     CONSTRAINT fkCaminhaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id)
-);
-
--- Criando a tabela produto
-CREATE TABLE produto (
-    idProduto INT AUTO_INCREMENT PRIMARY KEY,
-    nomeProduto VARCHAR(45),
-    qtdProduto VARCHAR(45),
-    fkCaminhao INT,
-    CONSTRAINT fkProdutoCaminhao FOREIGN KEY (fkCaminhao) REFERENCES caminhao(idCaminhao)
 );
 
 -- Criando a tabela sensor
@@ -44,34 +37,44 @@ CREATE TABLE dadosMedidos (
     dtDadosMedidas DATETIME DEFAULT CURRENT_TIMESTAMP,
     fkProduto INT,
     CONSTRAINT pkSensorDados PRIMARY KEY (fkSensor, idDadosMedidos),
-    CONSTRAINT fkDadosProduto FOREIGN KEY (fkProduto) REFERENCES produto(idProduto)
+    fkCaminhao INT,
+    CONSTRAINT fkDadosCaminhao FOREIGN KEY (fkCaminhao) REFERENCES caminhao(idCaminhao)
 );
 
 INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('Pedro', '12345678901234', 'pedrohenrique@gmail.com', '123456789');
-INSERT INTO produto (nomeProduto, qtdProduto, fkCaminhao) VALUES ('picanha', '50', 1);
 INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 1);
 INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (5,4,'-16.50', 2);
 
-SELECT*FROM produto;
+
+SELECT*from dadosmedidos;
 
 SELECT
     caminhao.idCaminhao,        
+    caminhao.motorista,
     dadosMedidos.dtDadosMedidas,
     dadosMedidos.temperatura,
-    produto.nomeProduto
+    caminhao.nomeProduto
 FROM caminhao
-JOIN produto
-    ON caminhao.idCaminhao = produto.fkCaminhao
-INNER JOIN dadosMedidos
-    ON dadosMedidos.fkProduto = produto.idProduto
+JOIN dadosMedidos
+    ON dadosMedidos.fkCaminhao = caminhao.idCaminhao
 INNER JOIN empresa
-    ON caminhao.fkEmpresa = empresa.id where id=1
+    ON caminhao.fkEmpresa = empresa.id where caminhao.fkEmpresa=1
 GROUP BY 
     caminhao.fkEmpresa, 
     caminhao.idCaminhao, 
     dadosMedidos.dtDadosMedidas,
-    produto.nomeProduto, 
+    caminhao.nomeProduto, 
     dadosMedidos.temperatura;
+    
+show tables;
 
+INSERT INTO Empresa Values
+();
 
-show databases;
+INSERT INTO Caminhao VALUES
+(DEFAULT,"Pedro",'BX01211','Picanha',10,1);
+
+select*from empresa;
+select*from caminhao;
+select*from sensor;
+select*from dadosmedidos;

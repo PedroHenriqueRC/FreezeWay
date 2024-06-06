@@ -123,3 +123,6 @@ function atualizacaoPeriodica() {
     });
     setTimeout(atualizacaoPeriodica, 5000);
 }
+
+
+
