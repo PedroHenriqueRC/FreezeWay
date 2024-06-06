@@ -9,6 +9,8 @@
     <title>FreezeWay | Cadastro de Caminhão</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="../js/sessao.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet"
@@ -152,9 +154,9 @@
                 </a>
         </li>
             <li class="list">
-                <a href="../site/index.html">
+                <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                    <span class="title">Sair</span>
+                    <span class="title"><button class="logout" onclick="limparSessao()"> Sair</button></span>
                 </a>
             </li>
         </ul>
@@ -177,7 +179,7 @@
                 <p class="pCadastro">Quantidade do Produto</p>
                 <input type="text" id="input_QtdProd" placeholder="Insira a Quantidade do produto irá transportar:">
                 <br><br>
-                <button onclick="cadastrarCaminhao()">Cadastrar Caminhão</button>
+                <span class="title"><button id="logout" onclick="limparSessao()"> Sair</button></span>
             </div>
         </div>
     </div>
@@ -244,4 +246,5 @@
     return false;
   }
 }
+
 </script>

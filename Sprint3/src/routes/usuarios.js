@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/redefinir", function (req, res) {
+    usuarioController.redefinir(req, res);
+});
+
 module.exports = router;

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="TesteMenu.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../js/sessao.js"></script>
+
     <!-- <link rel="stylesheet" href="PesquisaPi.css"> -->
 </head>
 
@@ -54,9 +56,9 @@
                 </a>
             </li>
             <li class="list">
-                <a href="../site/index.html">
+                <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                    <span class="title">Sair</span>
+                    <span class="title"><button class="logout" onclick="limparSessao()"> Sair</button></span>
                 </a>
             </li>
         </ul>
@@ -79,6 +81,7 @@
         
         
         <script>
+         
         var idUsuario = sessionStorage.ID_USUARIO;
         
         function formatDate(dateString) {

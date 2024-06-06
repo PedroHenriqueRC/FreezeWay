@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreezeWay | Redefinir Senha</title>
+    <script src="./js/sessao.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            background-image: url('img/foto caminhao.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .containerRedefinir {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .formRedefinir {
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            height: 450px;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: #686868b2;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .formRedefinir h2 {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 33px;
+        }
+
+        .formRedefinir p {
+            margin-top: 20px;
+            font-size: medium;
+            color: #ffffff;
+        }
+
+        input {
+            width: 410px;
+            height: 40px;
+            border-radius: 15px;
+            background: transparent;
+            margin-top: 5px;
+            color: #000;
+            transition: 400ms;
+            border: 2px solid #ffffff;
+            padding: 10px;
+        }
+
+        input:hover {
+            border: 2px solid #2c03d2;
+            font-size: 15px;
+        }
+
+        button {
+            width: 250px;
+            border-radius: 15px;
+            margin-top: 30px;
+            height: 40px;
+            background: #2c03d2;
+            color: #d4d4d4;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 400ms;
+            border: none;
+        }
+
+        button:hover {
+            background: #2c03d281;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containerRedefinir">
+        <div class="formRedefinir">
+            <h2 class="tituloRedefinir">Redefinição de Senha</h2>
+            <p class="RedefinirP">E-mail</p>
+            <input type="text" id="emailUsuario" required="@" placeholder="Informe seu e-mail"><br>
+            <p class="RedefinirP">Nova Senha:</p>
+            <input type="password" id="primeira_senha" placeholder="Nova Senha" required>
+            <p class="RedefinirP">Confirmar Senha:</p>
+            <input type="password" id="segunda_senha" placeholder="Confirme Nova Senha" required>
+            <button onclick="redefinir()">Redefinir Senha</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function redefinir() {
+        var emailVar = emailUsuario.value;
+        var senhaVar = primeira_senha.value;
+        var confirmacaoSenhaVar = segunda_senha.value;
+        var emailsemarroba = emailVar.indexOf("@");
+        var emailsemponto = emailVar.indexOf(".");
+
+        if (emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            alert("Sem dados nos campos! \nNecessário que você insira os dados nos campos corretamente");
+            return false;
+        } else if (emailsemarroba < 0) {
+            alert("Dados inseridos indevidamente, Insira novamente seu email com '@'");
+        } else if (emailsemponto < 0) {
+            alert('Dados inseridos indevidamente, Insira novamente seu email com ".com"');
+        } else if (senhaVar.length <= 6) {
+            alert("SENHA FRACA! \nInsira novamente Sua senha, com mais de 6 dígitos");
+        } else if (senhaVar != confirmacaoSenhaVar) {
+            alert("Senhas inseridas indevidamente, Insira novamente sua senha e sua confirmação");
+        } else {
+            fetch("/usuarios/redefinir", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        alert("Redefinição de senha realizada com sucesso! Redirecionando para tela de Login...");
+
+                        setTimeout(() => {
+                            window.location = "login.html";
+                        }, 1000);
+
+                        limparFormulario();
+                    } else {
+                        throw "Houve um erro ao tentar realizar a redefinição de senha!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
+        }
+    }
+</script>

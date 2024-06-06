@@ -24,7 +24,19 @@ function cadastrar(nome_empresaVar, cnpj_empresaVar, email_empresaVar, primeira_
     return database.executar(instrucaoSql, [nome_empresaVar, cnpj_empresaVar, email_empresaVar, primeira_senhaVar]);
 }
 
+
+function redefinir(email, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function redefinir():", email, senha);
+
+    var instrucaoSql = `UPDATE empresa SET senha = '${senha}' WHERE email = '${email}';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    redefinir
 };
