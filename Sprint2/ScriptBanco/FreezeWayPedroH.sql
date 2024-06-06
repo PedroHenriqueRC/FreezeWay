@@ -43,7 +43,7 @@ CREATE TABLE dadosMedidos (
 
 INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('Pedro', '12345678901234', 'pedrohenrique@gmail.com', '123456789');
 INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 1);
-INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (5,4,'-16.50', 2);
+INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (9,4,'-16.50', 6);
 
 
 SELECT*from dadosmedidos;
