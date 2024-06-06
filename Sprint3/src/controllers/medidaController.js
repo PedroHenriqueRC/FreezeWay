@@ -1,12 +1,12 @@
 var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidas(req, res) {
+    var Id_usuario = req.params.Id_usuario;
     const limite_linhas = 7;
-    var fkSensor = req.params.fkSensor;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(fkSensor, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(Id_usuario, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -20,11 +20,11 @@ function buscarUltimasMedidas(req, res) {
 }
 
 function buscarMedidasEmTempoReal(req, res) {
-    var fkSensor = req.params.fkSensor;
+    var Id_usuario = req.params.Id_usuario;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(fkSensor).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(Id_usuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
