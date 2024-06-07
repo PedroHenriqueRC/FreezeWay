@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/autenticarN3", function (req, res) {
+    usuarioController.autenticar(req, res);
+});
+
 module.exports = router;
