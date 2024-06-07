@@ -102,15 +102,15 @@
                 </div>
                 <div id="ideal">
                     <p>Ideal</p>
-                    <p>-15°C</p>
+                    <p>-16°C</p>
                 </div>
                 <div id="alertaQuente">
                     <p>Atenção</p>
-                    <p>&gt;= -12°C</p>
+                    <p>&gt;= -15°C</p>
                 </div>
                 <div id="alertaPerigo">
                     <p>Perigo</p>
-                    <p>&gt;= -8°C</p>
+                    <p>&gt;= -10°C</p>
                 </div>
             </div>
         </div>
@@ -257,11 +257,11 @@
         function alerta(novoRegistro) {
             for (var i = 0; i < novoRegistro.length; i++) {
                 var dadoGrafico = Number(novoRegistro[i].temperatura);
-                if (dadoGrafico >= -20 && dadoGrafico <= -24) {
+                if (dadoGrafico >= -16 && dadoGrafico <= -24) {
                     alertaPerigo.style.backgroundColor = "transparent";
                     alertaQuente.style.backgroundColor = "#f8ca25c7";
                 }
-                if (dadoGrafico >= -12) {
+                if (dadoGrafico >= -15) {
                     alertaPerigo.style.backgroundColor = "#ed1010c0";
                     alertaQuente.style.backgroundColor = "transparent";
 
