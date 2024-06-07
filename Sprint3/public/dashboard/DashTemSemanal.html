@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DashBoard - Temperatura Semanal</title>
-        <link rel="stylesheet" href="TesteMenu.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="../js/sessao.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard - Temperatura Semanal</title>
+    <link rel="stylesheet" href="TesteMenu.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/sessao.js"></script>
 
 </head>
 
-<body style="display: flex;background-color: rgb(255, 255, 255);" >
+<body style="display: flex;background-color: rgb(255, 255, 255);">
 
     <div class="navigation">
         <ul>
             <li class="list">
-                <span class="title" style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
+                <span class="title"
+                    style="color: skyblue; font-size: x-large; text-align: center;padding-left: 70px;">FreezeWay</span>
             </li>
             <li>
                 <span class="title"
-                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
-                    id="b_usuario">Usuário</span>!</span>
+                    style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
+                        id="b_usuario">Usuário</span>!</span>
             </li><br>
             <li class="list">
                 <a href="DashPesquisa.html">
@@ -31,9 +32,9 @@
             </li>
             <li>
                 <a href="DashFinal.html">
-                            <span class="icon"><ion-icon name="thermometer-outline"></ion-icon></span>
-                            <span class="title">Temperatura Atual</span>
-                        </a>
+                    <span class="icon"><ion-icon name="thermometer-outline"></ion-icon></span>
+                    <span class="title">Temperatura Atual</span>
+                </a>
             </li>
             <li class="list active">
                 <a href="DashTemSemanal.html">
@@ -42,7 +43,7 @@
                 </a>
             </li>
             <li class="list">
-             <a href="DashTempAnual.html">
+                <a href="DashTempAnual.html">
                     <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
                     <span class="title">Temperatura Mensal</span>
                 </a>
@@ -52,7 +53,13 @@
                     <span class="icon"><ion-icon name="duplicate-outline"></ion-icon></span>
                     <span class="title">Cadastrar Caminhão</span>
                 </a>
-        </li>
+            </li>
+            <li class="list">
+                <a href="../LoginN3.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">FreezeIA</span>
+                </a>
+            </li>
             <li class="list">
                 <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
@@ -63,28 +70,28 @@
     </div>
     <div class="body" style="width: 100%;">
         <h1>Analise Temperatura Média Semanal</h1>
-    
+
         <div class="canva2">
             <canvas id="myChart2" style="width: 100%;"></canvas>
         </div>
     </div>
 
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
-<script>
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    <script>
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    const list = document.querySelectorAll('.list');
-    function activeLink(){
+        const list = document.querySelectorAll('.list');
+        function activeLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
         list.forEach((item) =>
-        item.classList.remove('active'));
-        this.classList.add('active');
-    }
-    list.forEach((item) =>
-    item.addEventListener('click', activeLink));
+            item.addEventListener('click', activeLink));
 
         const labels2 = [
             'Segunda-Feira',
@@ -112,7 +119,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
             }
         };
-        
+
         const myChart2 = new Chart(
             document.getElementById("myChart2"),
             config2

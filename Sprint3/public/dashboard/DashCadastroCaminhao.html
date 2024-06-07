@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="TesteMenu.css">
-    
+
     <title>FreezeWay | Cadastro de Caminhão</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -31,7 +31,7 @@
         }
 
         body {
-            background:white;
+            background: white;
             color: rgb(202, 202, 202);
         }
 
@@ -54,7 +54,7 @@
         }
 
         .formCadastro {
-            padding-top:30px;
+            padding-top: 30px;
             display: flex;
             flex-direction: column;
             width: 500px;
@@ -120,8 +120,8 @@
             </li>
             <li>
                 <span class="title"
-                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
-                    id="b_usuario">Usuário</span>!</span>
+                    style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
+                        id="b_usuario">Usuário</span>!</span>
             </li><br>
             <li class="list">
                 <a href="DashPesquisa.html">
@@ -152,7 +152,13 @@
                     <span class="icon"><ion-icon name="duplicate-outline"></ion-icon></span>
                     <span class="title">Cadastrar Caminhão</span>
                 </a>
-        </li>
+            </li>
+            <li class="list">
+                <a href="../LoginN3.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">FreezeIA</span>
+                </a>
+            </li>
             <li class="list">
                 <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
@@ -188,12 +194,12 @@
 </html>
 
 <script>
-                b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-                var idUsuarioVar = sessionStorage.ID_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
 
     function cadastrarCaminhao() {
-        
-        
+
+
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
@@ -202,49 +208,49 @@
 
         var produtoVar = input_Produto.value;
         var idUsuarioVar = sessionStorage.ID_USUARIO;
-    
-    if ( motoristaVar == "" || placaVar == "" || produtoVar == "" || QtdProdutoVar == "" ) {
-    alert("Mensagem de erro para todos os campos em branco");
 
-      return false;
-     }else if(motoristaVar.length < 3){
-        alert("Dados inseridos incorretamente, Por Favor, Corrija Seu Nome.")
-    } else if(placaVar.length > 7 || placaVar.length < 7){
-        alert("Dados inseridos incorretamente, Por Favor, Corrija Sua Placa.\n Ela Deve Conter exatamente 7 Digitos")
-     }else {
+        if (motoristaVar == "" || placaVar == "" || produtoVar == "" || QtdProdutoVar == "") {
+            alert("Mensagem de erro para todos os campos em branco");
 
-    fetch("/Caminhao/cadastrarCaminhao", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-
-        motoristaServer: motoristaVar,
-        placaServer: placaVar,
-        produtoServer: produtoVar,
-        QtdProdutoServer: QtdProdutoVar,
-        idUsuarioServer: idUsuarioVar      
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            alert("Caminhão Cadastrado com sucesso!")
-            window.location = "./DashPesquisa.html";
-
+            return false;
+        } else if (motoristaVar.length < 3) {
+            alert("Dados inseridos incorretamente, Por Favor, Corrija Seu Nome.")
+        } else if (placaVar.length > 7 || placaVar.length < 7) {
+            alert("Dados inseridos incorretamente, Por Favor, Corrija Sua Placa.\n Ela Deve Conter exatamente 7 Digitos")
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-      });
 
-    return false;
-  }
-}
+            fetch("/Caminhao/cadastrarCaminhao", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+
+                    motoristaServer: motoristaVar,
+                    placaServer: placaVar,
+                    produtoServer: produtoVar,
+                    QtdProdutoServer: QtdProdutoVar,
+                    idUsuarioServer: idUsuarioVar
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        alert("Caminhão Cadastrado com sucesso!")
+                        window.location = "./DashPesquisa.html";
+
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    // finalizarAguardar();
+                });
+
+            return false;
+        }
+    }
 
 </script>

@@ -25,12 +25,6 @@
     </style>
 </head>
 
-<style>
-    p {
-        color: brown;
-    }
-</style>
-
 <body onload="obterDadosGrafico()">
     <div class="navigation">
         <ul>
@@ -74,6 +68,12 @@
                 </a>
             </li>
             <li class="list">
+                <a href="../LoginN3.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">FreezeIA</span>
+                </a>
+            </li>
+            <li class="list">
                 <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                     <span class="title">Sair</span>
@@ -87,9 +87,9 @@
         <div class="canva">
             <canvas id="myChartCanvas" class="canvas-container" style="width: 60%;height: 40%;"></canvas>
         </div>
-        <div class="area-parametros-alerta" style="display: flex;justify-content: end;align-items: end;">
+        <div class="area-parametros-alerta" style="display: flex;justify-content: end;align-items: center;">
             <p id="titulo-legenda">
-                De olho na Temperatura
+                Alerta
             </p>
             <div class="parametros-alerta">
                 <div id="perigoFrio">
@@ -104,7 +104,7 @@
                     <p>Ideal</p>
                     <p>-15°C</p>
                 </div>
-                <div id="alertQquente">
+                <div id="alertaQuente">
                     <p>Atenção</p>
                     <p>&gt;= -12°C</p>
                 </div>
@@ -258,26 +258,13 @@
         function alerta(novoRegistro) {
             for (var i = 0; i < novoRegistro.length; i++) {
                 var dadoGrafico = Number(novoRegistro[i].temperatura);
-                console.log(dadoGrafico);
-                if (dadoGrafico <= -25) {
-                    perigofrio.style.backgroundColor = `brown`;
-                    console.log("dadoGrafico");
-                } 
-                if (dadoGrafico >= -20 && dadoGrafico <= -24) {
-                    alertaFrio.style.backgroundColor = `brown`;
-                    console.log(dadoGrafico);
+                if (dadoGrafico >= -20 || dadoGrafico <= -24) {
+                    alertaPerigo.style.backgroundColor = "transparent";
+                    alertaQuente.style.backgroundColor = "#f8ca25c7";
                 }
-                if (dadoGrafico >= -15 && dadoGrafico <= -19) {
-                    ideal.style.backgroundColor = `brown`;
-                    console.log("");
-                }
-                if (dadoGrafico >= -12 && dadoGrafico <= -8 ) {
-                    alertaQuente.style.backgroundColor = `brown`;
-                    console.log("111");
-
-                } if(dadoGrafico > -8) {
-                    alertaPerigo.style.backgroundColor = `red`;
-                    console.log("aaa");
+                if(dadoGrafico > -8) {
+                    alertaPerigo.style.backgroundColor = "#ed1010c0";
+                    alertaQuente.style.backgroundColor = "transparent";
                 }
             }
 
