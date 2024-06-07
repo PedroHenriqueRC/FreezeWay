@@ -7,8 +7,8 @@
     <title>FreezeWay - DashBoard</title>
     <link rel="stylesheet" href="TesteMenu.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet"
@@ -24,7 +24,7 @@
     </style>
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
     <div class="navigation">
         <ul>
             <li class="list">
@@ -33,8 +33,8 @@
             </li>
             <li>
                 <span class="title"
-                style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
-                    id="b_usuario">Usuário</span>!</span>
+                    style="color: white; font-size: large; text-align: center;padding-left: 70px;">Olá,&nbsp;&nbsp;<span
+                        id="b_usuario">Usuário</span>!</span>
             </li><br>
             <li class="list">
                 <a href="DashPesquisa.html">
@@ -65,7 +65,7 @@
                     <span class="icon"><ion-icon name="duplicate-outline"></ion-icon></span>
                     <span class="title">Cadastrar Caminhão</span>
                 </a>
-        </li>
+            </li>
             <li class="list">
                 <a>
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
@@ -74,13 +74,11 @@
             </li>
         </ul>
     </div>
-    
+
     <div class="body">
         <h1>Captura da Temperatura Atual</h1>
-        <div class="canva">
-            <section style="width: 90%;">
-                <canvas id="lm35Temperatura"></canvas>
-            </section>
+        <div class="canva" style="width: 60%;height: 60%;">
+            <canvas id="myChartCanvas" class="canvas-container" style="width: 100%;height: 100%;"></canvas>
         </div>
         <div class="area-parametros-alerta" style="display: flex;justify-content: end;align-items: end;">
             <p class="titulo-legenda">
@@ -112,109 +110,222 @@
 
     </div>
 
-
-
-
     <script>
+        // Adicione logs para depuração
+        console.log('Script carregado');
 
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        window.onload(obterDadosGrafico)
 
-        /* -- lm35Temperatura */
-        var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
-        contextoLm35Temperatura.canvas.width = 1000;
-        contextoLm35Temperatura.canvas.height = 300;
-        var lm35Temperatura = new Chart(
-            contextoLm35Temperatura,
-            {
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        let chartInstance = null;
+        let proximaAtualizacao;
+        //         function obterDadosGrafico() {
+        //     const idUsuario = Number(sessionStorage.ID_USUARIO);
+
+        //     if (isNaN(idUsuario)) {
+        //         console.error('ID_USUARIO não está definido ou não é um número válido');
+        //         return;
+        //     }
+
+        //     fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' })
+        //         .then(function (response) {
+        //             if (response.ok) {
+        //                 response.json().then(function (resposta) {
+        //                     console.log('Dados recebidos da API:', resposta);
+        //                     plotarGrafico(resposta);
+        //                 });
+        //             } else {
+        //                 console.error('Nenhum dado encontrado ou erro na API');
+        //             }
+        //         })
+        //         .catch(function (error) {
+        //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        //         });
+        // }
+
+        function obterDadosGrafico() {
+            const Id_usuario = Number(sessionStorage.ID_USUARIO);
+            fetch(`/medidas/ultimas/${Id_usuario}`, { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .then(function (resposta) {
+                    console.log(resposta);
+                    plotarGrafico(resposta);
+                })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+                });
+        }
+
+
+
+
+        function plotarGrafico(resposta) {
+            const ctx = document.getElementById('myChartCanvas').getContext('2d');
+
+            if (resposta.length === 0) {
+                console.error('Resposta da API vazia');
+                return;
+            }
+
+            const temperaturas = resposta.map(item => parseFloat(item.temperatura)); // Garantir que seja número
+            const labels = resposta.map(item => moment(item.momento_grafico, 'HH:mm:ss').format('HH:mm:ss'));
+
+            if (chartInstance !== null) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
+                    labels: labels,
                     datasets: [{
-                        label: 'Temperatura Atual',
-                        type: 'line',
-                        // backgroundColor: 'rgb(135,206,235)',
-                        // backgroundColor: 'rgb(115,215,255)',
-                        borderColor: 'rgb(135,206,235)',
-                        // borderColor: 'rgb(0,0,25)',
-                        borderWidth: 3
+                        label: 'Temperatura',
+                        data: temperaturas,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
                     }]
                 },
                 options: {
                     scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Temperatura'
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'second',
+                                parser: 'HH:mm:ss',
+                                tooltipFormat: 'HH:mm:ss',
+                                displayFormats: {
+                                    second: 'HH:mm:ss'
+                                }
                             },
-                            ticks: {
-                                beginAtZero: true
+                            title: {
+                                display: true,
+                                text: 'Hora'
                             }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (°C)'
+                            }
+                        }
                     }
                 }
-            }
-        );
+            });
+
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(Number(sessionStorage.ID_USUARIO), chartInstance), 2000);
+        }
+
+
+        function atualizarGrafico(idUsuario, myChart) {
+            fetch(`/medidas/ultima/${idUsuario}`, { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .then(function (novoRegistro) {
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    
+                    if (novoRegistro.length > 0) {
+                        const novoDado = novoRegistro[0];
+                        const ultimoDado = myChart.data.labels[myChart.data.labels.length - 1];
+
+                        if (novoDado.momento_grafico !== ultimoDado) {
+                            myChart.data.labels.push(novoDado.momento_grafico);
+                            myChart.data.datasets[0].data.push(parseFloat(novoDado.temperatura));
+
+                            // Remover o primeiro elemento se o comprimento dos dados exceder 7
+                            if (myChart.data.labels.length > 7) {
+                                myChart.data.labels.shift();
+                                myChart.data.datasets[0].data.shift();
+                            }
+
+                            myChart.update();
+                        }
+                    }
+                    
+                    // Agendamento da próxima atualização
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 2000);
+                })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 2000);
+                });
+        }
+            // function atualizarGrafico(Id_usuario, dadosMedidos, myChart) {
+
+            //     const Id_usuario = Number(sessionStorage.ID_USUARIO);
+
+            //     fetch(`/medidas/ultimas/${Id_usuario}`, { cache: 'no-store' })
+            //         .then(response => {
+            //             if (response.ok) {
+            //                 return response.json();
+            //             } else {
+            //                 throw new Error('Nenhum dado encontrado ou erro na API');
+            //             }
+            //         })
+            //         .then(novoRegistro => {
+            //             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            //             console.log(`Dados atuais do gráfico:`);
+            //             console.log(dados);
+
+            //             let avisoCaptura = document.getElementById(`avisoCaptura${Id_usuario}`);
+            //             avisoCaptura.innerHTML = "";
+
+            //             if (novoRegistro.length === 0) {
+            //                 console.log("---------------------------------------------------------------");
+            //                 console.log("Não há novos dados disponíveis para atualização.");
+            //                 avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Não há novos dados disponíveis para atualização.";
+            //                 console.log("---------------------------------------------------------------");
+            //             } else {
+            //                 const novoDado = novoRegistro[0];
+
+            //                 // Verifica se o novo dado já está presente no gráfico
+            //                 if (!dados.labels.includes(novoDado.momento_grafico)) {
+            //                     dados.labels.push(novoDado.momento_grafico);
+            //                     dados.datasets[0].data.push(parseFloat(novoDado.temperatura));
+
+            //                     // Remover o primeiro elemento se o comprimento dos dados exceder 7
+            //                     if (dados.labels.length > 7) {
+            //                         dados.labels.shift();
+            //                         dados.datasets[0].data.shift();
+            //                     }
+
+            //                     myChart.update();
+            //                 } else {
+            //                     console.log("---------------------------------------------------------------");
+            //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.");
+            //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
+            //                     console.log("Horário do novo dado capturado:");
+            //                     console.log(novoDado.momento_grafico);
+            //                     console.log("Horário do último dado capturado:");
+            //                     console.log(dados.labels[dados.labels.length - 1]);
+            //                     console.log("---------------------------------------------------------------");
+            //                 }
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+            //         })
+            //         .finally(() => {
+            //             // Agendamento da próxima atualização após 2 segundos
+            //             setTimeout(() => atualizarGrafico(Id_usuario, dadosMedidos, myChart), 2000);
+            //         });
+            // }
 
         
-        var paginacao = {};
-        var tempo = {};
-        function obterDados(grafico, endpoint) {
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
-            http.send(null);
-            var valores = JSON.parse(http.responseText);
-            if (paginacao[endpoint] == null) {
-                paginacao[endpoint] = 0;
-            }
-            if (tempo[endpoint] == null) {
-                tempo[endpoint] = 0;
-            }
-            // Exibir à partir do último elemento exibido anteriormente
-            var ultimaPaginacao = paginacao[endpoint];
-            paginacao[endpoint] = valores.length;
-            var valores = valores.slice(ultimaPaginacao);
-            valores.forEach((valor) => {
-                //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                    grafico.data.labels.shift();
-                    grafico.data.datasets[0].data.shift();
-                }
-
-                grafico.data.labels.push(tempo[endpoint]++);
-                grafico.data.datasets[0].data.push(parseFloat(valor));
-                grafico.update();
-            })
-            if(valores <= -8){
-                alerta5.innerHTML = `Temperatura alta demais`;
-            } else{
-                alerta5.innerHTML = `<p>Perigo</p>
-                    <p>&gt;= -8°C</p>`
-            }   
-        }
-
-        setInterval(() => {
-            obterDados(lm35Temperatura, 'lm35/temperatura');
-        }, 1000);
-
-        // Configuração do menu
-
-        const list = document.querySelectorAll('.list');
-        function activeLink() {
-            list.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-        }
-        list.forEach((item) =>
-            item.addEventListener('click', activeLink));
-</script>
+        
+    </script>
 </body>
 
 </html>

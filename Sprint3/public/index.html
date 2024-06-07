@@ -35,6 +35,9 @@
             <li class="menuItem">
                 <a class="linkMenu" href="#rodape">CONTATO</a>
             </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="https://bandteccom-my.sharepoint.com/:b:/g/personal/pedro_tsouza_sptech_school/Eb6-ikTf91tLqs651kcPpscBuKNKYPji_DldB-BEtHhL5Q?e=5uVZhH">MANUAL</a>
+            </li>
         </div>
         <a class="linkMenu1" href="cadastro.html">CADASTRAR</a>
         <h1 class="barra"> | </h1>
@@ -97,19 +100,8 @@
         </p>
     </div>
     </div>
-    <section class="sessao-bob">
-        <div class="container-bob">
-            <h1>Tire suas dúvidas</h1>
-            <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-            <br><br>
-            <button onclick="gerarResposta()">Gerar Resposta</button>
-        </div>
-        <div class="resposta-bob">
-            <h3>Resposta da IA:</h3>
-            <div id="resposta"></div>
-        </div>
     </section>
-    <h1 class="tituloEquipe">Equipe</h1>
+    <h1 class="tituloEquipe">EQUIPE</h1>                                                                                                                                                                                                                                                                                                        
     <div id="containerEquipe">
         <div class="card">
             <img class="imgEquipe" src="assets/imgs/kendi.jpeg" alt=""></a>
@@ -164,31 +156,11 @@
                             class="fa fa-github"></i></a>
                 </div>
                 <div class="row">
-                    FreezeWay Copyright © 2024 FreezeWay - Todos os direitos reservador || Feito por: Equipe 6 FreezeWay
+                    FreezeWay Copyright © 2024 FreezeWay - Todos os direitos reservados || Feito por: Equipe 6 FreezeWay
                 </div>
             </div>
         </footer>
     </div>
 </body>
-<script>
-
-
-    async function gerarResposta() {
-        const pergunta = document.getElementById('pergunta').value;
-
-        const response = await fetch('/bob/perguntar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ pergunta })
-        });
-
-        const data = await response.json();
-
-        resposta.style.display = 'block';
-        document.getElementById('resposta').innerText = data.resultado;
-    }
-</script>
 
 </html>

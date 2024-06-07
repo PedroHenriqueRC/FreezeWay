@@ -11,6 +11,17 @@ function autenticar(email, senha) {
     
     return database.executar(instrucaoSql, [email, senha]);
 }
+function autenticarN3(email, senha) {
+    // console.log("ACESSEI O USUARIO MODEL: autenticarN3\nEmail:", email, "\nSenha:", senha);
+    
+    var instrucaoSql = `
+        SELECT id, nome, email FROM empresa WHERE email = '${email}' AND senha = '${senha}';
+    `;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
+    return data
+}
 
 function cadastrar(nome_empresaVar, cnpj_empresaVar, email_empresaVar, primeira_senhaVar) {
     console.log("ACESSEI O USUARIO MODEL: cadastrar\nNome da Empresa:", nome_empresaVar, "\nCNPJ:", cnpj_empresaVar, "\nEmail:", email_empresaVar, "\nSenha:", primeira_senhaVar);
@@ -38,5 +49,7 @@ function redefinir(email, senha) {
 module.exports = {
     autenticar,
     cadastrar,
-    redefinir
+    redefinir,
+    autenticarN3,
+    cadastrar
 };

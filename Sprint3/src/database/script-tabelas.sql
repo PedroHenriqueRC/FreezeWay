@@ -1,6 +1,6 @@
 CREATE DATABASE freezeway;
 USE freezeway;
-
+-- drop database freezeway;
 -- Criando a tabela empresa
 CREATE TABLE empresa (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -31,8 +31,9 @@ CREATE TABLE sensor (
 
 -- Criando a tabela dadosMedidos
 CREATE TABLE dadosMedidos (
-    idDadosMedidos INT,
+    idDadosMedidos INT auto_increment primary key,
     fkSensor INT,
+    CONSTRAINT fkDadosSensor FOREIGN KEY (fkSensor) REFERENCES sensor(idSensor),
     temperatura VARCHAR(6),
     dtDadosMedidas DATETIME DEFAULT CURRENT_TIMESTAMP,
     fkProduto INT,
@@ -47,6 +48,12 @@ INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUE
 
 
 SELECT*from dadosmedidos;
+INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 2);
+INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkCaminhao) VALUES (default,3,'-16.50', 2);
+
+
+
+SELECT*from caminhao;
 
 SELECT
     caminhao.idCaminhao,        
@@ -76,10 +83,13 @@ INSERT INTO Caminhao VALUES
 
 select*from empresa;
 select*from caminhao;
+
 select*from sensor;
 select*from dadosmedidos;
 
 
+select*from sensor;
+select*from dadosMedidos;
 
 
 
