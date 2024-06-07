@@ -257,13 +257,13 @@
         function alerta(novoRegistro) {
             for (var i = 0; i < novoRegistro.length; i++) {
                 var dadoGrafico = Number(novoRegistro[i].temperatura);
-                if (dadoGrafico >= -15 && dadoGrafico <= -10) {
+                if (dadoGrafico >= -15 && dadoGrafico < -10) {
                     alertaPerigo.style.backgroundColor = "transparent";
                     alertaQuente.style.backgroundColor = "#f8ca25c7";
                 }
                 if (dadoGrafico >= -10) {
-                    alertaPerigo.style.backgroundColor = "transparent";
-                    alertaQuente.style.backgroundColor = "#FF0000";
+                    alertaPerigo.style.backgroundColor = "#FF0000";
+                    alertaQuente.style.backgroundColor = "transparent";
 
                 }if(dadoGrafico <= -16) {
                     alertaQuente.style.backgroundColor = "transparent";
