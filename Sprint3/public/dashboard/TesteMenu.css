@@ -9,13 +9,13 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background-color: #ffffff;
-    overflow-y: hidden; 
+    /* overflow-y: hidden;  */
 }  
 
 .navigation{
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     height: 750px;
@@ -60,7 +60,7 @@
     display: block;
     min-width: 60px;
     height: 60px;
-     text-align: center; 
+    text-align: center; 
     line-height: 70px;
 
 }

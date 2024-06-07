@@ -63,81 +63,89 @@
             </li>
         </ul>
     </div>
-        <div id="body">
-            <h1>Caminhões</h1>
-            <table id="orcamentos-table">
-                <thead>
-                    <tr>
-                        <th>Identificador Caminhão</th>
-                        <th>Nome Motorista</th>
-                        <th>Dia e Hora</th>
-                        <th>Temperatura Média</th>
-                        <th>Produto</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        
-        
-        <script>
-         
+    <div id="body">
+        <h1>Caminhões</h1>
+        <table id="orcamentos-table">
+            <thead>
+                <tr>
+                    <th>Identificador Caminhão</th>
+                    <th>Nome Motorista</th>
+                    <th>Dia</th>
+                    <th>Temperatura Média</th>
+                    <th>Produto</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <script>
+
         var idUsuario = sessionStorage.ID_USUARIO;
-        
-        function formatDate(dateString) {
-            const options = {
-                year: 'numeric', month: 'numeric', day: 'numeric',
-                hour: 'numeric', minute: 'numeric', second: 'numeric',
-                hour12: false, timeZone: 'UTC'
-            };
-            return new Date(dateString).toLocaleString('pt-BR', options);
-        }
 
         document.addEventListener('DOMContentLoaded', function () {
-            b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-            fetch(`/Caminhao/buscarCaminhoes/${idUsuario}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
+    fetch(`/Caminhao/buscarCaminhoes/${idUsuario}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); 
+        const tbody = document.querySelector('#orcamentos-table tbody');
+        tbody.innerHTML = ''; 
+
+        if (data.length === 0) {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 5; 
+            cell.textContent = 'Nenhum Registro de Caminhão encontrado.';
+            row.appendChild(cell);
+            tbody.appendChild(row);
+        } else {
+            data.forEach(item => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${item.idCaminhao}</td>
+                    <td>${item.motorista}</td>
+                    <td>${formatDate(item.dtDadosMedidas)}</td>
+                    <td>${item.temperatura}°</td>
+                    <td>${item.nomeProduto}</td>
+                `;
+
+                if (item.temperatura > -15) {
+                    row.style.color = 'red'; 
                 }
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data); // Verificar a estrutura dos dados retornados
-                    const tbody = document.querySelector('#orcamentos-table tbody');
-                    tbody.innerHTML = ''; // Clear previous content
 
-                    if (data.length === 0) {
-                        const row = document.createElement('tr');
-                        const cell = document.createElement('td');
-                        cell.colSpan = 4;
-                        cell.textContent = 'Nenhum Registro de Caminhão encontrado.';
-                        row.appendChild(cell);
-                        tbody.appendChild(row);
-                    } else {
-                        data.forEach(item => {
-                            const row = document.createElement('tr');
-                            row.innerHTML = `
-                                <td>${item.idCaminhao || item.caminhao?.idCaminhao}</td>
-                                <td>${item.motorista || item.motorista?.motorista}</td>
-                                <td>${formatDate(item.dtDadosMedidas || item.dadosMedidos?.dtDadosMedidas)}</td>
-                                <td>${item.temperatura || item.dadosMedidos?.temperatura}</td>
-                                <td>${item.nomeProduto || item.produto?.nomeProduto}</td>
-                            `;
-                            tbody.appendChild(row);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Houve um erro ao capturar os dados do Orcamento!', error);
-                });
-        });
+                tbody.appendChild(row);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Houve um erro ao capturar os dados dos Caminhões!', error);
+    });
+});
+
+function formatDate(dateString) {
+    const options = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        timeZone: 'UTC'
+    };
+    return new Date(dateString).toLocaleDateString('pt-BR', options);
+}
+
     </script>
 </body>
 

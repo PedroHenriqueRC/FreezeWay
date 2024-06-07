@@ -18,20 +18,23 @@ function buscarCaminhoes(idUsuario) {
     SELECT
     caminhao.idCaminhao,        
     caminhao.motorista,
-    dadosMedidos.dtDadosMedidas,
-    dadosMedidos.temperatura,
+    DATE(dadosMedidos.dtDadosMedidas) AS dtDadosMedidas,
+    TRUNCATE(AVG(dadosMedidos.temperatura), 2) AS temperatura,
     caminhao.nomeProduto
 FROM caminhao
 JOIN dadosMedidos
     ON dadosMedidos.fkCaminhao = caminhao.idCaminhao
 INNER JOIN empresa
-    ON caminhao.fkEmpresa = empresa.id where id=${idUsuario}
+    ON caminhao.fkEmpresa = empresa.id 
+WHERE caminhao.fkEmpresa = ${idUsuario}
 GROUP BY 
-    caminhao.fkEmpresa, 
     caminhao.idCaminhao, 
-    dadosMedidos.dtDadosMedidas,
-    caminhao.nomeProduto, 
-    dadosMedidos.temperatura;
+    caminhao.motorista,
+    DATE(dadosMedidos.dtDadosMedidas),
+    caminhao.nomeProduto
+ORDER BY
+    caminhao.idCaminhao,
+    DATE(dadosMedidos.dtDadosMedidas);
    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
