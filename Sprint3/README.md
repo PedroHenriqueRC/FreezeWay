@@ -10,3 +10,10 @@
             Desenvolvimento da tela de cadastro;
             Desenvolvimento da tela de login;
             Desenvolvimento da Dashboard;
+
+# Sprint 3
+    Dentro do diretório "Sprint 3" estão todos os arquivos que foram feitos para o desenvolvimento e conexão das telas com o bando de dados como:
+    Tela de Cadastro;
+    Tela de Login;
+    Tela de Cadastro de caminhões;
+    Tela de Dashboard;
