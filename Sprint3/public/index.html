@@ -35,6 +35,9 @@
             <li class="menuItem">
                 <a class="linkMenu" href="#rodape">CONTATO</a>
             </li>
+            <li class="menuItem">
+                <a class="linkMenu" href="https://bandteccom-my.sharepoint.com/:b:/g/personal/pedro_tsouza_sptech_school/Eb6-ikTf91tLqs651kcPpscBuKNKYPji_DldB-BEtHhL5Q?e=5uVZhH">MANUAL</a>
+            </li>
         </div>
         <a class="linkMenu1" href="cadastro.html">CADASTRAR</a>
         <h1 class="barra"> | </h1>
@@ -97,6 +100,7 @@
         </p>
     </div>
     </div>
+    <h1 class="tituloEquipe">Equipe</h1>
     </section>
     <h1 class="tituloEquipe">EQUIPE</h1>                                                                                                                                                                                                                                                                                                        
     <div id="containerEquipe">
@@ -159,25 +163,5 @@
         </footer>
     </div>
 </body>
-<script>
-
-
-    async function gerarResposta() {
-        const pergunta = document.getElementById('pergunta').value;
-
-        const response = await fetch('/bob/perguntar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ pergunta })
-        });
-
-        const data = await response.json();
-
-        resposta.style.display = 'block';
-        document.getElementById('resposta').innerText = data.resultado;
-    }
-</script>
 
 </html>
