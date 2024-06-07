@@ -119,29 +119,7 @@
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
         let chartInstance = null;
         let proximaAtualizacao;
-        //         function obterDadosGrafico() {
-        //     const idUsuario = Number(sessionStorage.ID_USUARIO);
 
-        //     if (isNaN(idUsuario)) {
-        //         console.error('ID_USUARIO não está definido ou não é um número válido');
-        //         return;
-        //     }
-
-        //     fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' })
-        //         .then(function (response) {
-        //             if (response.ok) {
-        //                 response.json().then(function (resposta) {
-        //                     console.log('Dados recebidos da API:', resposta);
-        //                     plotarGrafico(resposta);
-        //                 });
-        //             } else {
-        //                 console.error('Nenhum dado encontrado ou erro na API');
-        //             }
-        //         })
-        //         .catch(function (error) {
-        //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        //         });
-        // }
 
         function obterDadosGrafico() {
             const Id_usuario = Number(sessionStorage.ID_USUARIO);
@@ -220,7 +198,7 @@
                 }
             });
 
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(Number(sessionStorage.ID_USUARIO), chartInstance), 2000);
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(Number(sessionStorage.ID_USUARIO), chartInstance), 50000);
         }
 
 
@@ -255,11 +233,11 @@
                     }
                     
                     // Agendamento da próxima atualização
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 50000);
                 })
                 .catch(function (error) {
                     console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 50000);
                 });
         }
            

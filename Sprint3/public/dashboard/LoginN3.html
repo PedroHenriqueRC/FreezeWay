@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site institucional</title>
+    <!-- <link rel="stylesheet" href="."> -->
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body style="overflow-y: hidden;">
+
+    <div class="imagemLogin">
+        <img class="imgLogin" src="../img/Imagem telas original tudo freezeway.png">
+    </div>
+
+    <div class="formLogin">
+        <div class="containerLogin">
+            <div id="login">
+                <h2 class="tituloLogin">Login</h2>
+                <p class="loginP">E-mail</p><br>
+                <input type="text" id="email_empresa" required="@" placeholder="Informe seu e-mail"><br>
+                <p class="loginP">Senha</p><br>
+                <input type="password" id="primeira_senha" required="required" placeholder="Informe sua senha">
+                <br><br>
+               
+                <button onclick="autenticarN3()">Login</button>
+                
+            </div>
+        </div>
+    </div>
+    <div id="div_aguardar" class="loading-div">
+    </div>
+
+    <div id="div_erros_login"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    function autenticarN3() {
+        // var emailVar = email_input.value;
+        // var senhaVar = senha_input.value;
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var emailVar = email_empresa.value;
+        var senhaVar = primeira_senha.value;
+        var termina_com_com = emailVar.endsWith(".com");
+        var posicaoArroba = emailVar.indexOf("@");
+        var tamanhoSenha = senhaVar.lenght;
+
+        if (emailVar != "admN3@gmail.com" || senhaVar != "12345678") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        } else {
+
+            // console.log("FORM LOGIN: ", email);
+            // console.log("FORM SENHA: ", senha);
+
+            fetch("/usuarios/autenticarN3", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                console.log(resposta);
+
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        alert("Login Realizado com sucesso! \n Redirecionando para a DashBoard ")
+                        
+                        window.location = "../dashboard/telaN3.html";
+                    }, 1000); // apenas para exibir o loading
+                    
+                });                        
+                
+
+                }else{
+
+                    alert("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+    }
+</script>

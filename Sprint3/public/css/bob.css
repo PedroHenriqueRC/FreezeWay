@@ -1,0 +1,54 @@
+body{
+background-color: #424244;
+display: flex;
+}
+
+.sessao-bob {
+border-radius: 10px;
+display: flex;
+margin-left: 20px;
+margin-bottom: 50px;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-color: skyblue;
+width: 900px;
+height: 450px;
+}
+
+.sessao-bob h1 {
+font-size: 40px;
+color: white;
+text-align: center;
+justify-content: start;
+}
+
+.sessao-bob #pergunta {
+
+text-align: center;
+justify-content: center;
+border-radius: 7px;
+height: 120px;
+width: 350px;
+/* margin-left: 130px; */
+}
+
+.sessao-bob button {
+background-color: #424244;
+color: white;
+border-radius: 6px;
+width: 90px;
+margin-top: -20px;
+}
+
+.container-bob {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.resposta-bob h3 {
+margin-top: 10px;
+color: white
+}
