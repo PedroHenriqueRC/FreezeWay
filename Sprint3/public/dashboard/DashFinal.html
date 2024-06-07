@@ -257,7 +257,7 @@
         function alerta(novoRegistro) {
             for (var i = 0; i < novoRegistro.length; i++) {
                 var dadoGrafico = Number(novoRegistro[i].temperatura);
-                if (dadoGrafico >= -20 || dadoGrafico <= -24) {
+                if (dadoGrafico >= -20 && dadoGrafico <= -24) {
                     alertaPerigo.style.backgroundColor = "transparent";
                     alertaQuente.style.backgroundColor = "#f8ca25c7";
                 }
