@@ -1,5 +1,5 @@
-CREATE DATABASE freezeway;
-USE freezeway;
+/*CREATE DATABASE freezeway;
+USE freezeway;*/
 -- drop database freezeway;
 -- Criando a tabela empresa
 CREATE TABLE empresa (
@@ -37,20 +37,21 @@ CREATE TABLE dadosMedidos (
     temperatura VARCHAR(6),
     dtDadosMedidas DATETIME DEFAULT CURRENT_TIMESTAMP,
     fkProduto INT,
-    CONSTRAINT pkSensorDados PRIMARY KEY (fkSensor, idDadosMedidos),
+    CONSTRAINT fkSensorDados FOREIGN KEY (fkSensor) references sensor(idSensor),
     fkCaminhao INT,
     CONSTRAINT fkDadosCaminhao FOREIGN KEY (fkCaminhao) REFERENCES caminhao(idCaminhao)
 );
 
 INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('Pedro', '12345678901234', 'pedrohenrique@gmail.com', '123456789');
+INSERT INTO Caminhao VALUES (DEFAULT,"Pedro",'BX01211','Picanha',10,1);
 INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 1);
-INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (5,4,'-16.50', 2);
+INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkProduto) VALUES (1,1,'-16.50', 2);
 
 
 SELECT*from dadosmedidos;
-INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 2);
+/*INSERT INTO sensor (nomeSensor, fkCaminhao) VALUES ('LM35', 2);
 INSERT INTO dadosMedidos (idDadosMedidos,fkSensor, temperatura, fkCaminhao) VALUES (default,3,'-16.50', 2);
-
+*/
 
 
 SELECT*from caminhao;
@@ -78,8 +79,6 @@ show tables;
 INSERT INTO Empresa Values
 ();
 
-INSERT INTO Caminhao VALUES
-(DEFAULT,"Pedro",'BX01211','Picanha',10,1);
 
 select*from empresa;
 select*from caminhao;
@@ -90,6 +89,7 @@ select*from dadosmedidos;
 
 select*from sensor;
 select*from dadosMedidos;
+
 
 
 
