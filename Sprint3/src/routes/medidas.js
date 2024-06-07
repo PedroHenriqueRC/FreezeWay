@@ -12,5 +12,3 @@ router.get("/tempo-real/:Id_usuario", function (req, res) {
 });
 
 module.exports = router;
-
-module.exports = router;

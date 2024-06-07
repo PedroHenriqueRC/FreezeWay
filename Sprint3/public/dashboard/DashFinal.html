@@ -225,7 +225,7 @@
 
 
         function atualizarGrafico(idUsuario, myChart) {
-            fetch(`/medidas/ultima/${idUsuario}`, { cache: 'no-store' })
+            fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' })
                 .then(function (response) {
                     if (response.ok) {
                         return response.json();
@@ -262,68 +262,7 @@
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 2000);
                 });
         }
-            // function atualizarGrafico(Id_usuario, dadosMedidos, myChart) {
-
-            //     const Id_usuario = Number(sessionStorage.ID_USUARIO);
-
-            //     fetch(`/medidas/ultimas/${Id_usuario}`, { cache: 'no-store' })
-            //         .then(response => {
-            //             if (response.ok) {
-            //                 return response.json();
-            //             } else {
-            //                 throw new Error('Nenhum dado encontrado ou erro na API');
-            //             }
-            //         })
-            //         .then(novoRegistro => {
-            //             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            //             console.log(`Dados atuais do gráfico:`);
-            //             console.log(dados);
-
-            //             let avisoCaptura = document.getElementById(`avisoCaptura${Id_usuario}`);
-            //             avisoCaptura.innerHTML = "";
-
-            //             if (novoRegistro.length === 0) {
-            //                 console.log("---------------------------------------------------------------");
-            //                 console.log("Não há novos dados disponíveis para atualização.");
-            //                 avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Não há novos dados disponíveis para atualização.";
-            //                 console.log("---------------------------------------------------------------");
-            //             } else {
-            //                 const novoDado = novoRegistro[0];
-
-            //                 // Verifica se o novo dado já está presente no gráfico
-            //                 if (!dados.labels.includes(novoDado.momento_grafico)) {
-            //                     dados.labels.push(novoDado.momento_grafico);
-            //                     dados.datasets[0].data.push(parseFloat(novoDado.temperatura));
-
-            //                     // Remover o primeiro elemento se o comprimento dos dados exceder 7
-            //                     if (dados.labels.length > 7) {
-            //                         dados.labels.shift();
-            //                         dados.datasets[0].data.shift();
-            //                     }
-
-            //                     myChart.update();
-            //                 } else {
-            //                     console.log("---------------------------------------------------------------");
-            //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.");
-            //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
-            //                     console.log("Horário do novo dado capturado:");
-            //                     console.log(novoDado.momento_grafico);
-            //                     console.log("Horário do último dado capturado:");
-            //                     console.log(dados.labels[dados.labels.length - 1]);
-            //                     console.log("---------------------------------------------------------------");
-            //                 }
-            //             }
-            //         })
-            //         .catch(error => {
-            //             console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
-            //         })
-            //         .finally(() => {
-            //             // Agendamento da próxima atualização após 2 segundos
-            //             setTimeout(() => atualizarGrafico(Id_usuario, dadosMedidos, myChart), 2000);
-            //         });
-            // }
-
-        
+           
         
     </script>
 </body>
