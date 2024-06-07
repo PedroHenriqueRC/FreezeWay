@@ -319,7 +319,7 @@ p{
 }
 
 .tituloEquipe{
-    margin-left: 665px;
+    margin-left: 605px;
     font-family: "Mukta", sans-serif;
     margin-bottom: 50px;
     font-size: 45px;
@@ -352,7 +352,7 @@ p{
     width: 100%;
     height: 550px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     margin-top: 50px;
