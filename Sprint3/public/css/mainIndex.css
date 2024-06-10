@@ -315,7 +315,6 @@ p{
 .row1 a i {
     font-size: 2em;
     margin: 0% 1%;
-    margin-left: 100px;
 }
 
 .tituloEquipe{
@@ -330,15 +329,15 @@ p{
     width: 100%;
     height: 250px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     margin-top: 105px;
 }
 
 .imgEquipe{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 120px;
     box-shadow: #777777 1px 1px 5px 5px;
     transition: 400ms;
@@ -352,21 +351,17 @@ p{
     width: 100%;
     height: 550px;
     display: flex;
-    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
-    margin-top: 50px;
 }
 
 .tituloCard{
     margin-top: 10px;
     font-family: "Mukta", sans-serif;
-    margin-left: 30px;
     color: #000d6e;
 }
 
 .funcaoEquipe{
-    margin-left: -15px;
     font-size: 15px;
     color: #777777;
 }
@@ -374,5 +369,12 @@ p{
 .imgHome{
     margin-top: 15px;
     margin-right: 50px;
+}
 
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
 }
