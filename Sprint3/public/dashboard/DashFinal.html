@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -146,9 +146,6 @@
                 });
         }
 
-
-
-
         function plotarGrafico(resposta) {
             const ctx = document.getElementById('myChartCanvas').getContext('2d');
 
@@ -243,7 +240,6 @@
                         }
                     }
 
-                    // Agendamento da próxima atualização
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 5000);
                     alerta(novoRegistro);
                 })
