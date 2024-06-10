@@ -54,6 +54,12 @@
         if (emailVar != "admN3@gmail.com" || senhaVar != "12345678") {
 
             // finalizarAguardar();
+            setTimeout(function () {
+                        alert("Login Realizado com sucesso! \n Redirecionando para a DashBoard ")
+                        
+                        window.location = "/dashboard/DashPesquisa.html";
+                    }, 1000);
+                    
             return false;
         } else {
 
