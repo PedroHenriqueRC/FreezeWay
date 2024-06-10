@@ -15,7 +15,8 @@ function cadastrarCaminhao(motorista, placa, produto,QtdProduto, idUsuario) {
 function buscarCaminhoes(idUsuario) {
     console.log("ACESSEI O MEDIDA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n buscarCaminhoes(): ")
     var instrucaoSql = `
-    SELECT
+    
+SELECT
     caminhao.idCaminhao,        
     caminhao.motorista,
     DATE(dadosMedidos.dtDadosMedidas) AS dtDadosMedidas,
@@ -26,15 +27,15 @@ JOIN dadosMedidos
     ON dadosMedidos.fkCaminhao = caminhao.idCaminhao
 INNER JOIN empresa
     ON caminhao.fkEmpresa = empresa.id 
-WHERE caminhao.fkEmpresa = ${idUsuario}
+WHERE caminhao.fkEmpresa =${idUsuario}
 GROUP BY 
     caminhao.idCaminhao, 
     caminhao.motorista,
     DATE(dadosMedidos.dtDadosMedidas),
-    caminhao.nomeProduto
+    caminhao.nomeProduto,
     dadosMedidos.temperatura
 ORDER BY 
-    dadosMedidos.temperatura;
+dadosMedidos.temperatura;
    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
