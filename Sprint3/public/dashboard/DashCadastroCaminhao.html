@@ -91,6 +91,11 @@
             font-size: 15px;
         }
 
+        input:focus {
+            outline: 0;
+            border: 2px solid skyblue ;
+        }
+
         button {
             width: 250px;
             border-radius: 15px;
@@ -199,9 +204,6 @@
 
     function cadastrarCaminhao() {
 
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
         var placaVar = input_Placa.value;
         var QtdProdutoVar = input_QtdProd.value;

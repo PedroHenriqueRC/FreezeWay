@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site institucional</title>
-    <!-- <link rel="stylesheet" href="."> -->
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
@@ -43,10 +42,8 @@
 
 
     function autenticarN3() {
-        // var emailVar = email_input.value;
-        // var senhaVar = senha_input.value;
-        var idUsuario = sessionStorage.ID_USUARIO;
 
+        var idUsuario = sessionStorage.ID_USUARIO;
         var emailVar = email_empresa.value;
         var senhaVar = primeira_senha.value;
         var termina_com_com = emailVar.endsWith(".com");
@@ -54,14 +51,10 @@
         var tamanhoSenha = senhaVar.lenght;
 
         if (emailVar != "admN3@gmail.com" || senhaVar != "12345678") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
             // finalizarAguardar();
             return false;
         } else {
-
-            // console.log("FORM LOGIN: ", email);
-            // console.log("FORM SENHA: ", senha);
 
             fetch("/usuarios/autenticarN3", {
                 method: "POST",
@@ -91,7 +84,7 @@
                         alert("Login Realizado com sucesso! \n Redirecionando para a DashBoard ")
                         
                         window.location = "telaN3.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000);
                     
                 });                        
                 
