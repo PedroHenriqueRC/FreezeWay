@@ -31,9 +31,11 @@ GROUP BY
     caminhao.idCaminhao, 
     caminhao.motorista,
     DATE(dadosMedidos.dtDadosMedidas),
-    caminhao.nomeProduto,
+    caminhao.nomeProduto
+ORDER BY 
     dadosMedidos.temperatura
-ORDER BY dadosMedidos.temperatura;
+    caminhao.idCaminhao,
+    DATE(dadosMedidos.dtDadosMedidas);
    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
