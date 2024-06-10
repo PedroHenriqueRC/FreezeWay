@@ -34,7 +34,6 @@ GROUP BY
     caminhao.nomeProduto
     dadosMedidos.temperatura
 ORDER BY 
-    DATE(dadosMedidos.dtDadosMedidas),
     dadosMedidos.temperatura;
    `;
 
