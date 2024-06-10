@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+    <link rel="shortcut icon" href="../img/Logo FreezeWay logo branca sem fundo.png" type="image/x-icon">
     <style>
         .formCadastro .containercadastro h2 {
             color: skyblue;
@@ -89,6 +90,11 @@
         input:hover {
             border: 2px solid skyblue;
             font-size: 15px;
+        }
+
+        input:focus {
+            outline: 0;
+            border: 2px solid skyblue;
         }
 
         button {
@@ -199,9 +205,6 @@
 
     function cadastrarCaminhao() {
 
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var motoristaVar = input_Motorista.value;
         var placaVar = input_Placa.value;
         var QtdProdutoVar = input_QtdProd.value;

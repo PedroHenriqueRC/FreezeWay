@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0" />
+    <link rel="shortcut icon" href="../img/Logo FreezeWay logo branca sem fundo.png" type="image/x-icon">
     <style>
         canvas {
             -moz-user-select: none;
@@ -118,7 +119,6 @@
     </div>
 
     <script>
-        // Adicione logs para depuração
         console.log('Script carregado');
 
         window.onload(obterDadosGrafico)
@@ -146,9 +146,6 @@
                     console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
                 });
         }
-
-
-
 
         function plotarGrafico(resposta) {
             const ctx = document.getElementById('myChartCanvas').getContext('2d');
@@ -244,7 +241,6 @@
                         }
                     }
 
-                    // Agendamento da próxima atualização
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, myChart), 5000);
                     alerta(novoRegistro);
                 })
@@ -264,7 +260,7 @@
                     alertaPerigo.style.backgroundColor = "#FF0000";
                     alertaQuente.style.backgroundColor = "transparent";
 
-                }else if(dadoGrafico <= 15 ) {
+                } else if (dadoGrafico <= 15) {
                     alertaQuente.style.backgroundColor = "transparent";
                     alertaPerigo.style.backgroundColor = "transparent";
                 }
