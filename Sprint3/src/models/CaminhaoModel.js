@@ -6,7 +6,7 @@ function cadastrarCaminhao(motorista, placa, produto,QtdProduto, idUsuario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO Caminhao (motorista, placaCaminhao, nomeProduto,qtdProduto, fkEmpresa) VALUES ('${motorista}', '${placa}','${produto}',${QtdProduto}, '${idUsuario}');
+        INSERT INTO caminhao (motorista, placaCaminhao, nomeProduto,qtdProduto, fkEmpresa) VALUES ('${motorista}', '${placa}','${produto}',${QtdProduto}, '${idUsuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
