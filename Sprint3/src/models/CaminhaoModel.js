@@ -32,7 +32,9 @@ GROUP BY
     caminhao.motorista,
     DATE(dadosMedidos.dtDadosMedidas),
     caminhao.nomeProduto
+    dadosMedidos.temperatura
 ORDER BY 
+    DATE(dadosMedidos.dtDadosMedidas),
     dadosMedidos.temperatura;
    `;
 
